@@ -1,60 +1,13 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #74ebd5, #acb6e5);
-    font-family: 'Arial', sans-serif;
+body, html {
     margin: 0;
-}
-
-.button-container {
-    text-align: center;
-}
-
-.fancy-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
     overflow: hidden;
-    transition: color 0.4s, background-color 0.4s;
-    outline: none;
-    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5);
+    background: #000;
 }
 
-.fancy-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
-    z-index: 0;
-    transform: translate(-50%, -50%) scale(0);
-}
-
-.fancy-button:hover::before {
-    width: 400%;
-    height: 400%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.fancy-button:hover {
-    color: #007BFF;
-    background-color: white;
-}
-
-.fancy-button:focus {
-    outline: none;
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

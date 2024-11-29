@@ -1,13 +1,158 @@
-body, html {
+body {
     margin: 0;
+    height: 100vh;
     overflow: hidden;
-    background: #000;
+    background: black;
+    position: relative;
 }
 
-canvas {
-    position: fixed;
+.star {
+    position: absolute;
+    border-radius: 50%; /* Круглая форма */
+    animation: twinkle 1.5s infinite alternate, pulse 1.5s infinite alternate; /* Добавляем анимацию пульсации */
+    transition: transform 0.3s, opacity 0.3s;
+    background-color: white; /* Цвет по умолчанию (будет переопределен в JS) */
+    width: 10px; /* Размер звезд */
+    height: 10px; /* Размер звезд */
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8); /* Эффект свечения */
+}
+
+.meteor {
+    position: absolute;
+    width: 10px; /* Ширина метеора */
+    height: 10px; /* Высота метеора */
+    border-radius: 50%; /* Круглая форма */
+    background-color: white; /* Цвет метеора */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6); /* Эффект свечения */
+    opacity: 0.8; /* Прозрачность */
+}
+
+
+
+
+
+@keyframes move-meteor {
+    0% {
+        transform: translate(0, 0); /* Начальная позиция */
+    }
+    100% {
+        transform: translate(200vw, 200vh); /* Двигаем метеор за пределы экрана */
+    }
+}
+@keyframes move-meteor {
+    0% {
+        transform: translate(0, 0); /* Начальная позиция */
+    }
+    100% {
+        transform: translate(200vw, 200vh); /* Двигаем метеор за пределы экрана */
+    }
+}
+
+@keyframes particle-fade {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1; /* Полная непрозрачность */
+    }
+    100% {
+        transform: translate(10px, 10px); /* Слегка смещаем частицы */
+        opacity: 0; /* Исчезновение */
+    }
+}
+
+@keyframes tail-move {
+    0% {
+        transform: scale(1);
+        opacity: 0.8; /* Полная непрозрачность */
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0; /* Исчезновение хвоста */
+    }
+}
+
+@keyframes expand {
+    0% {
+        transform: scale(0); /* Начальный размер 0 */
+        opacity: 1; /* Полная непрозрачность */
+    }
+    100% {
+        transform: scale(3); /* Увеличиваем до 3 раз */
+        opacity: 0; /* Уменьшаем непрозрачность до 0 */
+    }
+}
+
+.star {
+    transition: opacity 1s; /* Плавное изменение непрозрачности для частиц */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+    }
+    50% {
+        transform: scale(1.2); /* Увеличение размера */
+        box-shadow: 0 0 30px rgba(255, 255, 0, 1); /* Увеличение свечения */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(2); /* Увеличение размера */
+        opacity: 0; /* Исчезновение звезды */
+    }
+    100% {
+        transform: scale(0); /* Уменьшение до нуля */
+        opacity: 0; /* Полное исчезновение */
+    }
+}
+
+@keyframes particle-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(var(--x), var(--y));
+    }
+}
+
+
+
+/* Стили для шапки */
+header {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    z-index: 10; /* Чтобы шапка была над звездами */
+}
+
+nav {
+    display: flex;
+    gap: 20px; /* Расстояние между кнопками */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
 }

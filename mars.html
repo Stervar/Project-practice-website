@@ -279,110 +279,245 @@
             margin-top: 20px;
 }
 
-            .mission-image {
-                max-width: 300px;
-                max-height: 250px;
-                object-fit: cover;
-                border-radius: 15px;
-                box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .mission-image {
+            max-width: 300px;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-            .mission-image:hover {
-                transform: scale(1.05);
-                box-shadow: 0 15px 25px rgba(255, 69, 0, 0.3);
+        .mission-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(255, 69, 0, 0.3);
 }
 
-            .mission-description {
-                flex: 1;
+        .mission-description {
+            flex: 1;
 }
 
-            .history-section h3 {
-                color: var(--accent-color);
-                margin-bottom: 15px;
-                font-size: 1.8rem;
-                border-bottom: 2px solid var(--accent-color);
-                padding-bottom: 10px;
+        .history-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
 }
 
-            .mission-description p {
-                color: var(--text-color);
-                line-height: 1.6;
-                margin-bottom: 15px;
+        .mission-description p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 15px;
 }
 
-            .mission-description ul {
-                list-style-type: none;
-                padding-left: 0;
+        .mission-description ul {
+            list-style-type: none;
+            padding-left: 0;
 }
 
-            .mission-description ul li {
-                position: relative;
-                padding-left: 25px;
-                margin-bottom: 10px;
-                color: var(--text-color);
+        .mission-description ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: var(--text-color);
 }
 
-            .mission-description ul li::before {
-                content: '•';
-                color: var(--accent-color);
-                position: absolute;
-                left: 0;
-                font-weight: bold;
+        .mission-description ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
 }
 
-            .mission-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 30px;
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
 }
 
-            .mission-item {
-                background-color: var(--primary-bg);
-                border-radius: 15px;
-                overflow: hidden;
-                transition: transform 0.3s ease;
+        .mission-item {
+            background-color: var(--primary-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
 }
 
-            .mission-item:hover {
+        .mission-item:hover {
                 transform: translateY(-10px);
 }
 
-            .mission-item h4 {
-                background-color: var(--accent-color);
-                color: var(--primary-bg);
-                padding: 10px 15px;
-                margin: 0;
+        .mission-item h4 {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 10px 15px;
+            margin: 0;
+            text-align: center;
+}
+
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .mission-details {
+                flex-direction: column;
                 text-align: center;
-}
-
-            /* Адаптивность */
-            @media (max-width: 992px) {
-                .mission-details {
-                    flex-direction: column;
-                    text-align: center;
     }
 
-                .mission-image {
-                    max-width: 100%;
-                    margin-bottom: 20px;
+            .mission-image {
+                max-width: 100%;
+                margin-bottom: 20px;
     }
 
-                .mission-grid {
-                    grid-template-columns: 1fr;
+            .mission-grid {
+                grid-template-columns: 1fr;
     }
 }
 
-            /* Анимация появления */
-            .history-section {
-                opacity: 0;
-                transform: translateY(50px);
-                transition: opacity 1s, transform 1s;
+        /* Анимация появления */
+        .history-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
 }
 
-            .history-section.visible {
-                opacity: 1;
-                transform: translateY(0);
+        .history-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+}
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-bg), #1a0000);
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(139, 69, 19, 0.1) 0%, 
+        rgba(88, 41, 0, 0.3) 50%, 
+        var(--primary-bg) 100%
+    );
+    z-index: 1;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(255, 99, 71, 0.05) 0%,  /* Темно-красный низкой интенсивности */
+        rgba(178, 34, 34, 0.1) 20%,  /* Более насыщенный красный */
+        rgba(139, 69, 19, 0.2) 40%,  /* Коричневатый оттенок */
+        rgba(88, 41, 0, 0.3) 60%,    /* Темный оттенок */
+        transparent 80%
+    );
+    border-radius: 50%;
+    box-shadow: 
+        0 0 300px 150px rgba(255, 69, 0, 0.05),
+        0 0 200px 100px rgba(139, 69, 19, 0.1),
+        inset 0 0 250px 100px rgba(88, 41, 0, 0.2);
+    
+    /* Эффект текстуры */
+    background-image: 
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 5%, transparent 5%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 5%, transparent 5%);
+    
+    animation: 
+        marsReveal 2s ease-out,
+        marsRotate 50s linear infinite;
+    z-index: 1;
+}
+
+@keyframes marsReveal {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.7);
+        bottom: -60%;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        bottom: -40%;
+    }
+}
+
+@keyframes marsRotate {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    padding: 0 15px;
+    animation: textFadeIn 2s ease-out;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-shadow: 
+        0 0 30px rgba(255, 69, 0, 0.7),
+        2px 2px 15px rgba(0,0,0,0.6);
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #hero::after {
+        width: 800px;
+        height: 800px;
+        bottom: -50%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
 }
     </style>
 </head>

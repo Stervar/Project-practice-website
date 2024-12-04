@@ -2,22 +2,622 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Марс</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Марс - Красная Планета</title>
     <style>
-        body {
-            background: black;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+        :root {
+            --primary-bg: #000000;
+            --secondary-bg: #1a1a1a;
+            --accent-color: #ff4500;
+            --text-color: #ffffff;
+            --secondary-text: #ff6b35;
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        #back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1100;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+        }
+
+        #back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.7);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        #navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        #navigation .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+}
+
+        .explore-button {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+}
+
+        .explore-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+}
+
+        /* Медиа-запрос для адаптивности */
+        @media (max-width: 992px) {
+            .nav-left {
+                flex-direction: column;
+                align-items: flex-start;
+    }
+
+            .explore-button {
+                margin-top: 10px;
+    }
+}
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-bg), #300000);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('mars-background.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+        }
+
+        .section {
+            padding: 100px 0;
+            background-color: var(--secondary-bg);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+            border-top: 3px solid var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h2 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .section-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.3);
+            transition: transform 0.5s ease;
+        }
+
+        .section-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.6);
+        }
+
+        .fact-card {
+            background-color: var(--primary-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            transition: all 0.5s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+        }
+
+        .fact-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        #footer {
+            background-color: var(--primary-bg);
+            color: var(--secondary-text);
+            text-align: center;
+            padding: 30px 0;
+            border-top: 2px solid var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+        }
+
+        /* Стили для секции истории Марса */
+        #history .section-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+}
+
+        .history-content {
+            background-color: var(--secondary-bg);
+            padding: 40px;
+            border-radius: 15px;
+}
+
+        .history-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--accent-color);
+}
+
+        .history-section:last-child {
+                border-bottom: none;
+}
+
+        .mission-details {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+}
+
+            .mission-image {
+                max-width: 300px;
+                max-height: 250px;
+                object-fit: cover;
+                border-radius: 15px;
+                box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+            .mission-image:hover {
+                transform: scale(1.05);
+                box-shadow: 0 15px 25px rgba(255, 69, 0, 0.3);
+}
+
+            .mission-description {
+                flex: 1;
+}
+
+            .history-section h3 {
+                color: var(--accent-color);
+                margin-bottom: 15px;
+                font-size: 1.8rem;
+                border-bottom: 2px solid var(--accent-color);
+                padding-bottom: 10px;
+}
+
+            .mission-description p {
+                color: var(--text-color);
+                line-height: 1.6;
+                margin-bottom: 15px;
+}
+
+            .mission-description ul {
+                list-style-type: none;
+                padding-left: 0;
+}
+
+            .mission-description ul li {
+                position: relative;
+                padding-left: 25px;
+                margin-bottom: 10px;
+                color: var(--text-color);
+}
+
+            .mission-description ul li::before {
+                content: '•';
+                color: var(--accent-color);
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+}
+
+            .mission-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+}
+
+            .mission-item {
+                background-color: var(--primary-bg);
+                border-radius: 15px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+}
+
+            .mission-item:hover {
+                transform: translateY(-10px);
+}
+
+            .mission-item h4 {
+                background-color: var(--accent-color);
+                color: var(--primary-bg);
+                padding: 10px 15px;
+                margin: 0;
+                text-align: center;
+}
+
+            /* Адаптивность */
+            @media (max-width: 992px) {
+                .mission-details {
+                    flex-direction: column;
+                    text-align: center;
+    }
+
+                .mission-image {
+                    max-width: 100%;
+                    margin-bottom: 20px;
+    }
+
+                .mission-grid {
+                    grid-template-columns: 1fr;
+    }
+}
+
+            /* Анимация появления */
+            .history-section {
+                opacity: 0;
+                transform: translateY(50px);
+                transition: opacity 1s, transform 1s;
+}
+
+            .history-section.visible {
+                opacity: 1;
+                transform: translateY(0);
+}
     </style>
 </head>
 <body>
-    <h1>Страница Марс</h1>
-    <a href="index.html" style="color: white; text-decoration: underline;">Назад на основное</a>
+    <button id="back-button" onclick="window.location.href='index.html'">← Назад</button>
+
+    <nav id="navigation">
+    <div class="container">
+        <div class="nav-left">
+            <div class="logo">Марс Экспедиция</div>
+            <a href="https://explore-mars.esri.com/" target="_blank" class="explore-button">
+                 Интерактивное Исследование 
+            </a>
+        </div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#history">История</a></li>
+                <li><a href="#research">Исследования</a></li>
+                <li><a href="#facts">Факты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Марс: Красная Планета</h1>
+            <p>Величайшее космическое приключение человечества</p>
+        </div>
+    </section>
+
+    <section id="history" class="section">
+    <div class="container">
+        <h2>История Исследования Марса</h2>
+        <div class="section-grid">
+            <div class="history-content">
+                <div class="history-section">
+                    <h3>Древние наблюдения</h3>
+                    <div class="mission-details">
+                        <img src="ancient-mars-observations.jpg" alt="Древние наблюдения Марса" class="mission-image">
+                        <div class="mission-description">
+                            <p>Марс всегда привлекал внимание человечества с глубокой древности. Первые наблюдения датируются древнеегипетскими и вавилонскими цивилизациями. Египтяне называли планету "Har decher" - "Красная", что perfectly описывает её внешний вид.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Первые научные открытия</h3>
+                    <div class="mission-details">
+                        <img src="galileo-mars-observation.jpg" alt="Галилео Галилей" class="mission-image">
+                        <div class="mission-description">
+                            <p>В 1609 году Галилео Галилей впервые использовал телескоп для наблюдения Марса, что стало революционным моментом в изучении планеты. Он смог разглядеть фазы и диск планеты, положив начало научному изучению Марса.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Гипотеза каналов</h3>
+                    <div class="mission-details">
+                        <img src="schiaparelli-mars-canals.jpg" alt="Карта каналов Скиапарелли" class="mission-image">
+                        <div class="mission-description">
+                            <p>В 1877 году итальянский астроном Джованни Скиапарелли впервые описал «каналы» на поверхности Марса. Это вызвало огромный интерес и породило множество фантастических теорий о возможной цивилизации на Марсе.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Первые космические миссии</h3>
+                    <div class="mission-grid">
+                        <div class="mission-item">
+                            <h4>1964 - Mariner 4</h4>
+                            <div class="mission-details">
+                                <img src="mariner4-mission.jpg" alt="Mariner 4" class="mission-image">
+                                <div class="mission-description">
+                                    <p>Первый пролёт около Марса (NASA). Передал первые близкие снимки поверхности планеты.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-item">
+                            <h4>1971 - Mariner 9</h4>
+                            <div class="mission-details">
+                                <img src="mariner9-mission.jpg" alt="Mariner 9" class="mission-image">
+                                <div class="mission-description">
+                                    <p>Первый искусственный спутник Марса (NASA). Совершил полную съёмку поверхности планеты.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-item">
+                            <h4>1976 - Viking 1 и 2</h4>
+                            <div class="mission-details">
+                                <img src="viking-mission.jpg" alt="Viking Landers" class="mission-image">
+                                <div class="mission-description">
+                                    <p>Первые посадочные аппараты на поверхность Марса. Провели первые научные эксперименты.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Революция марсоходов</h3>
+                    <div class="mission-grid">
+                        <div class="mission-item">
+                            <h4>1997 - Pathfinder и Sojourner</h4>
+                            <div class="mission-details">
+                                <img src="pathfinder-sojourner.jpg" alt="Pathfinder и Sojourner" class="mission-image">
+                                <div class="mission-description">
+                                    <p>Первый успешный марсоход, проложивший путь для будущих исследований.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-item">
+                            <h4>2012 - Curiosity</h4>
+                            <div class="mission-details">
+                                <img src="curiosity-rover.jpg" alt="Curiosity" class="mission-image">
+                                <div class="mission-description">
+                                    <p>Самый сложный и продвинутый марсоход с расширенным научным функционалом.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mission-item">
+                            <h4>2021 - Perseverance</h4>
+                            <div class="mission-details">
+                                <img src="perseverance-rover.jpg" alt="Perseverance" class="mission-image">
+                                <div class="mission-description">
+                                    <p>Новейший марсоход с вертолётом Ingenuity, способный исследовать новые области.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Современные исследования</h3>
+                    <div class="mission-details">
+                        <img src="modern-mars-research.jpg" alt="Современные исследования Марса" class="mission-image">
+                        <div class="mission-description">
+                            <p>Сегодня изучением Марса занимаются:</p>
+                            <ul>
+                                <li>NASA (США)</li>
+                                <li>Роскосмос (Россия)</li>
+                                <li>CNSA (Китай)</li>
+                                <li>ESA (Европейское космическое агентство)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Будущее исследований</h3>
+                    <div class="mission-details">
+                        <img src="mars-future-research.jpg" alt="Будущее исследований Марса" class="mission-image">
+                        <div class="mission-description">
+                            <p>Основные цели современных миссий:</p>
+                            <ul>
+                                <li>Поиск следов древней жизни</li>
+                                <li>Изучение возможности колонизации</li>
+                                <li>Исследование климатической истории</li>
+                                <li>Подготовка к пилотируемым миссиям</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    </section>
+
+    <section id="research" class="section">
+        <div class="container">
+            <h2>Современные Исследования</h2>
+            <div class="section-grid">
+                <img src="mars-rover.jpg" alt="Mars Rover" class="section-image">
+                <div>
+                    <p>Миссии NASA и других космических агентств продолжают исследовать Марс с помощью передовых роверов и спутников.</p>
+                    <p>Основные цели включают поиск следов воды, изучение геологии и оценку возможности существования жизни.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facts" class="section">
+        <div class="container">
+            <h2>Интересные Факты</h2>
+            <div class="fact-card">
+                <h3>Размер и Гравитация</h3>
+                <p>Диаметр Марса составляет примерно 6,792 км, что почти в два раза меньше Земли. Гравитация равна 38% от земной.</p>
+            </div>
+            <div class="fact-card">
+                <h3>Атмосфера</h3>
+                <p>Атмосфера Марса состоит в основном из углекислого газа (95.3%), с небольшими количествами азота и аргона.</p>
+            </div>
+            <div class="fact-card">
+                <h3>Спутники</h3>
+                <p>У Марса есть два спутника: Фобос и Деймос, которые, вероятно, являются захваченными астероидами.</p>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <footer id="footer">
+        <div class="container">
+            <p>© 2024 Mars Exploration Project. Все права защищены.</p>
+            <p>Контакты: info@mars-exploration.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для проверки видимости секций при прокрутке
+        function checkVisibility() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.75) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+    const historySections = document.querySelectorAll('.history-section');
+    
+    console.log('Найдено секций:', historySections.length);
+    
+    historySections.forEach((section, index) => {
+        console.log(`Секция ${index + 1}:`, section);
+        section.classList.add('visible');
+    });
+});
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    </script>
 </body>
 </html>

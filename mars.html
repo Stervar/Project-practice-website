@@ -12,7 +12,7 @@
             --text-color: #ffffff;
             --secondary-text: #ff6b35;
         }
-
+         
         * {
             margin: 0;
             padding: 0;
@@ -484,196 +484,266 @@
     }
 }
 
-.hero-content h1 {
-    font-size: 4rem;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-    text-shadow: 
-        0 0 30px rgba(255, 69, 0, 0.7),
-        2px 2px 15px rgba(0,0,0,0.6);
-    letter-spacing: 2px;
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 
+                0 0 30px rgba(255, 69, 0, 0.7),
+                2px 2px 15px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    opacity: 0.8;
-    max-width: 800px;
-    margin: 0 auto;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    #hero::after {
-        width: 800px;
-        height: 800px;
-        bottom: -50%;
-    }
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            #hero::after {
+                width: 800px;
+                height: 800px;
+                bottom: -50%;
+            }
 
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
 
-    .hero-content p {
-        font-size: 1rem;
-    }
+            .hero-content p {
+                font-size: 1rem;
+            }
 }
 
-.mars-channels-section {
-    background-color: rgba(139, 69, 19, 0.1);
-    border-radius: 15px;
-    padding: 30px;
-    margin: 20px 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+        .mars-channels-section {
+            background-color: rgba(139, 69, 19, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
 }
 
-.mars-channels-section:hover {
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-    transform: translateY(-5px);
+        .mars-channels-section:hover {
+            box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
 }
 
-.mission-details {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
+        .mission-details {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+}
+
+        .mission-image-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+}
+
+        .mission-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+}
+
+        .mission-image:hover {
+            transform: scale(1.05);
+}
+
+        .image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-top: 10px;
+            font-style: italic;
+}
+
+        .mission-description {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+}
+
+        .description-content h4 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-top: 20px;
+            position: relative;
+            padding-left: 15px;
+}
+
+        .description-content h4::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+}
+
+        .description-content ul {
+            list-style-type: none;
+            padding: 0;
+}
+
+        .description-content li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+}
+
+        .description-content li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+}
+
+        .historical-context ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: rgba(88, 41, 0, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+}
+
+        .historical-context li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+}
+
+        .historical-context li::before {
+            margin-right: 10px;
+            content: '📌';
+}
+
+        .additional-info {
+            margin-top: 20px;
+            background-color: rgba(88, 41, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            font-style: italic;
+}
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .mission-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .mission-image-container,
+            .mission-description {
+                flex: 1 1 100%;
+            }
+
+            .historical-context ul {
+                grid-template-columns: 1fr;
+            }
+}
+
+        /* Дополнительные анимации и эффекты */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+}
+
+        .mars-channels-section {
+            animation: fadeIn 0.7s ease-out;
+}
+
+.history-section {
+    margin-bottom: 40px; /* Отступ снизу для разделения секций */
+    padding: 20px; /* Внутренний отступ для секции */
+    background-color: var(--secondary-bg); /* Темный фон для секции */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Тень для секции */
+    transition: transform 0.3s; /* Плавный переход для секции */
+}
+
+.history-section:hover {
+    transform: translateY(-5px); /* Подъем секции при наведении */
+}
+
+.history-section h3 {
+    color: var(--accent-color); /* Оранжевый цвет текста */
+    margin-bottom: 15px; /* Отступ снизу для заголовка */
+    text-align: center; /* Центрирование заголовка */
+    font-size: 1.8rem; /* Размер шрифта для заголовка */
+    border-bottom: 2px solid var(--accent-color); /* Линия снизу для заголовка */
+    padding-bottom: 10px; /* Отступ снизу для заголовка */
+}
+
+.mission-grid {
+    display: grid; /* Использование сетки для размещения элементов */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Автоматическая сетка */
+    gap: 20px; /* Промежутки между элементами */
+    justify-items: center; /* Центрирование элементов по горизонтали */
+}
+
+.mission-item {
+    background-color: var(--primary-bg); /* Темный фон для элемента */
+    border-radius: 10px; /* Закругленные углы */
+    overflow: hidden; /* Скрытие переполнения */
+    box-shadow: 0 2px 10px rgba(255, 69, 0, 0.2); /* Тень для элемента */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход при наведении */
+    text-align: center; /* Центрирование текста внутри элемента */
+}
+
+.mission-item:hover {
+    transform: translateY(-5px); /* Подъем элемента при наведении */
+    box-shadow: 0 4px 20px rgba(255, 69, 0, 0.4); /* Увеличение тени при наведении */
 }
 
 .mission-image-container {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
+    display: flex; /* Использование flexbox для центрирования изображения */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    margin: 0 auto; /* Центрирование контейнера */
 }
 
 .mission-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    width: 100%; /* Полная ширина контейнера */
+    height: 200px; /* Фиксированная высота */
+    object-fit: cover; /* Обтяжка изображения */
+    object-position: center; /* Центрирование изображения */
+    transition: transform 0.3s; /* Плавный переход для изображения */
 }
 
-.mission-image:hover {
-    transform: scale(1.05);
+.mission-image-container:hover .mission-image {
+    transform: scale(1.05); /* Увеличение изображения при наведении */
 }
 
 .image-caption {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.7;
-    margin-top: 10px;
-    font-style: italic;
+    padding: 10px; /* Внутренний отступ для подписи */
+    text-align: center; /* Центрирование текста */
+    color: var(--text-color); /* Цвет текста для подписи */
+    font-size: 0.9rem; /* Размер шрифта для подписи */
+    background-color: rgba(255, 69, 0, 0.1); /* Полупрозрачный фон для подписи */
+    border-top: 1px solid var(--accent-color); /* Линия сверху для разделения */
 }
-
-.mission-description {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.description-content h4 {
-    color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 5px;
-    margin-top: 20px;
-    position: relative;
-    padding-left: 15px;
-}
-
-.description-content h4::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-}
-
-.description-content ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.description-content li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
-}
-
-.description-content li::before {
-    content: '✦';
-    position: absolute;
-    left: 0;
-    color: var(--accent-color);
-}
-
-.historical-context ul {
-    list-style-type: none;
-    padding: 0;
-    background-color: rgba(88, 41, 0, 0.05);
-    border-radius: 10px;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.historical-context li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-}
-
-.historical-context li::before {
-    margin-right: 10px;
-    content: '📌';
-}
-
-.additional-info {
-    margin-top: 20px;
-    background-color: rgba(88, 41, 0, 0.05);
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid var(--accent-color);
-    font-style: italic;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    .mission-details {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .mission-image-container,
-    .mission-description {
-        flex: 1 1 100%;
-    }
-
-    .historical-context ul {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Дополнительные анимации и эффекты */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.mars-channels-section {
-    animation: fadeIn 0.7s ease-out;
-}
-
     </style>
 </head>
 <body>
@@ -841,75 +911,45 @@
         <p>Гипотеза марсианских каналов вдохновила целое поколение писателей-фантастов, включая Герберта Уэллса и его знаменитый роман "Война миров". Она стала символом научного воображения и устремлений человечества к познанию неизведанного.</p>
     </div>
    </div>
-                <div class="history-section">
-                    <h3>Первые космические миссии</h3>
-                    <div class="mission-grid">
-                        <div class="mission-item">
-                            <h4>1964 - Mariner 4</h4>
-                            <div class="mission-details">
-                                <img src="mariner4-mission.jpg" alt="Mariner 4" class="mission-image">
-                                <div class="mission-description">
-                                    <p>Первый пролёт около Марса (NASA). Передал первые близкие снимки поверхности планеты.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="mission-item">
-                            <h4>1971 - Mariner 9</h4>
-                            <div class="mission-details">
-                                <img src="mariner9-mission.jpg" alt="Mariner 9" class="mission-image">
-                                <div class="mission-description">
-                                    <p>Первый искусственный спутник Марса (NASA). Совершил полную съёмку поверхности планеты.</p>
-                                </div>
-                            </div>
+        <div class="history-section">
+            <h3>Первые космические миссии</h3>
+                <div class="mission-grid">
+                    <div class="mission-item">
+                        <div class="mission-image-container">
+                            <img src="img/1964 - Mariner 4.webp" alt="Mariner 4" class="mission-image">
                         </div>
+                        <h4>1964 - Mariner 4</h4>
+                        <div class="image-caption">
+                            <p>Первый пролёт около Марса (NASA). Передал первые близкие снимки поверхности планеты.</p>
+                        </div>
+                    </div>
 
-                        <div class="mission-item">
-                            <h4>1976 - Viking 1 и 2</h4>
-                            <div class="mission-details">
-                                <img src="viking-mission.jpg" alt="Viking Landers" class="mission-image">
-                                <div class="mission-description">
-                                    <p>Первые посадочные аппараты на поверхность Марса. Провели первые научные эксперименты.</p>
-                                </div>
-                            </div>
+                    <div class="mission-item">
+                        <div class="mission-image-container">
+                            <img src="img/2017Space_Interplanetary_Space_Station_Mariner_in_orbit_of_the_planet_Mars_112285_.jpg" alt="Mariner 9" class="mission-image">
+                        </div>
+                        <h4>1971 - Mariner 9</h4>
+                        <div class="image-caption">
+                            <p>Первый искусственный спутник Марса (NASA). Совершил полную съёмку поверхности планеты.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-image-container">
+                            <img src="img/1976 - Viking 1 и 2.webp" alt="Viking Landers" class="mission-image">
+                        </div>
+                        <h4>1976 - Viking 1 и 2</h4>
+                        <div class="image-caption">
+                            <p>Первые посадочные аппараты на поверхность Марса. Провели первые научные эксперименты.</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="history-section">
-                    <h3>Революция марсоходов</h3>
-                    <div class="mission-grid">
-                        <div class="mission-item">
-                            <h4>1997 - Pathfinder и Sojourner</h4>
-                            <div class="mission-details">
-                                <img src="pathfinder-sojourner.jpg" alt="Pathfinder и Sojourner" class="mission-image">
-                                <div class="mission-description">
-                                    <p>Первый успешный марсоход, проложивший путь для будущих исследований.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mission-item">
-                            <h4>2012 - Curiosity</h4>
-                            <div class="mission-details">
-                                <img src="curiosity-rover.jpg" alt="Curiosity" class="mission-image">
-                                <div class="mission-description">
-                                    <p>Самый сложный и продвинутый марсоход с расширенным научным функционалом.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mission-item">
-                            <h4>2021 - Perseverance</h4>
-                            <div class="mission-details">
-                                <img src="perseverance-rover.jpg" alt="Perseverance" class="mission-image">
-                                <div class="mission-description">
-                                    <p>Новейший марсоход с вертолётом Ingenuity, способный исследовать новые области.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
                 </div>
+            
+                   
 
                 <div class="history-section">
                     <h3>Современные исследования</h3>

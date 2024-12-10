@@ -1,3 +1,4 @@
+
 <div class="history-section ancient-mars-observations">
     <h3>Древние наблюдения: Марс в мировоззрении древних цивилизаций</h3>
     <div class="mission-details">

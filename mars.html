@@ -718,33 +718,38 @@
 }
 
 .mission-image-container {
-    display: flex; /* Использование flexbox для центрирования изображения */
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    margin: 0 auto; /* Центрирование контейнера */
+    display: flex;
+    flex-direction: column; /* Изменено на column */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%; /* Добавлено для полной ширины */
 }
 
 .mission-image {
-    width: 100%; /* Полная ширина контейнера */
-    height: 200px; /* Фиксированная высота */
-    object-fit: cover; /* Обтяжка изображения */
-    object-position: center; /* Центрирование изображения */
-    transition: transform 0.3s; /* Плавный переход для изображения */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
 }
 
-.mission-image-container:hover .mission-image {
-    transform: scale(1.05); /* Увеличение изображения при наведении */
+.mission-image:hover {
+    transform: scale(1.05);
 }
 
 .image-caption {
-    padding: 10px; /* Внутренний отступ для подписи */
-    text-align: center; /* Центрирование текста */
-    color: var(--text-color); /* Цвет текста для подписи */
-    font-size: 0.9rem; /* Размер шрифта для подписи */
-    background-color: rgba(255, 69, 0, 0.1); /* Полупрозрачный фон для подписи */
-    border-top: 1px solid var(--accent-color); /* Линия сверху для разделения */
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-top: 10px; /* Отступ сверху */
+    font-style: italic;
+    padding: 10px;
+    background-color: rgba(255, 69, 0, 0.1);
+    border-top: 1px solid var(--accent-color);
+    width: 100%; /* Полная ширина */
 }
-
 
 
     </style>
@@ -753,19 +758,18 @@
     <button id="back-button" onclick="window.location.href='index.html'">← Назад</button>
 
     <nav id="navigation">
-        <div class="container">
-            <div class="nav-left">
-                <div class="logo">Марс Экспедиция</div>
-                <a href="https://explore-mars.esri.com/" target="_blank" class="explore-button">
-                    Интерактивное Исследование 
-                </a>
-            </div>
+    <div class="container">
+        <div class="nav-left">
+            <div class="logo">Марс Экспедиция</div>
+            <a href="https://explore-mars.esri.com/" target="_blank" class="explore-button">
+                 Интерактивное Исследование 
+            </a>
+        </div>
             <ul class="nav-links">
                 <li><a href="#home">Главная</a></li>
                 <li><a href="#history">История</a></li>
                 <li><a href="#research">Исследования</a></li>
                 <li><a href="#facts">Факты</a></li>
-                <li><a href="#new-research">Новые Исследования</a></li> <!-- Новый пункт меню -->
             </ul>
         </div>
     </nav>

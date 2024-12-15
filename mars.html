@@ -1774,6 +1774,172 @@
         border-radius: 20px;
     }
 }
+#history .history-section .mission-description {
+    background-color: rgba(26, 26, 26, 0.7);
+    border-radius: 30px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 69, 0, 0.2);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(255, 69, 0, 0.1);
+    transition: all 0.5s ease;
+}
+
+#history .history-section .mission-description:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 7px 20px rgba(255, 69, 0, 0.2);
+}
+
+#history .history-section .description-content h4 {
+    color: #ff4500;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#history .history-section .description-content h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(
+        to right, 
+        #ff4500, 
+        transparent
+    );
+}
+
+#history .history-section .description-content p {
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    font-size: 1.1rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+#history .history-section .description-content p::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #ff4500;
+    font-weight: bold;
+}
+
+#history .history-section .description-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#history .history-section .description-content ul li {
+    color: #ffffff;
+    padding: 10px 0;
+    position: relative;
+    padding-left: 30px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+}
+
+#history .history-section .description-content ul li:last-child {
+    border-bottom: none;
+}
+
+#history .history-section .description-content ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #ff4500;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+#history .history-section .description-content ul li:hover {
+    transform: translateX(10px);
+    color: #ff4500;
+}
+
+#history .history-section .description-content ul li:hover::before {
+    opacity: 1;
+    color: #ff4500;
+}
+
+#history .history-section .historical-context {
+    background-color: rgba(39, 39, 39, 0.5);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+    backdrop-filter: blur(5px);
+}
+
+#history .history-section .historical-context h4 {
+    color: #ff4500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#history .history-section .historical-context ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    list-style-type: none;
+    padding: 0;
+}
+
+#history .history-section .historical-context ul li {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+#history .history-section .additional-info {
+    background-color: rgba(39, 39, 39, 0.5);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+    border-left: 4px solid #ff4500;
+    transition: all 0.3s ease;
+}
+
+#history .history-section .additional-info:hover {
+    transform: translateX(10px);
+}
+
+#history .history-section .additional-info h4 {
+    color: #ff4500;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#history .history-section .additional-info p {
+    color: #ffffff;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    #history .history-section .mission-description {
+        padding: 20px;
+    }
+
+    #history .history-section .historical-context ul {
+        grid-template-columns: 1fr;
+    }
+}
     </style>
 </head>
 <body>

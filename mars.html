@@ -268,12 +268,7 @@
                 border-bottom: none;
 }
 
-        .mission-details {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-top: 20px;
-}
+
 
         .mission-image {
             max-width: 300px;
@@ -530,39 +525,14 @@
             transform: translateY(-5px);
 }
 
-        .mission-details {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-}
 
-        .mission-image-container {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-}
 
-        .mission-image {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-}
 
-        .mission-image:hover {
-            transform: scale(1.05);
-}
 
-        .image-caption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            opacity: 0.7;
-            margin-top: 10px;
-            font-style: italic;
-}
+
+
+
+
 
         .mission-description {
             flex: 2;
@@ -637,22 +607,12 @@
             font-style: italic;
 }
 
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .mission-details {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .mission-image-container,
-            .mission-description {
-                flex: 1 1 100%;
-            }
+    
 
             .historical-context ul {
                 grid-template-columns: 1fr;
             }
-}
+
 
         /* Дополнительные анимации и эффекты */
         @keyframes fadeIn {
@@ -1665,6 +1625,124 @@
     padding: 50px 0;
     background-color: #252525;
 }
+
+.mission-details {
+    display: flex;
+    align-items: stretch; /* Растягиваем элементы по высоте */
+    background-color: rgba(26, 26, 26, 0.5);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    gap: 30px; /* Добавляем отступ между изображением и текстом */
+}
+
+.mission-details:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2);
+}
+
+.mission-image-container {
+    flex: 0 0 350px; /* Фиксируем ширину контейнера изображения */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mission-image-wrapper {
+    width: 350px;
+    height: 350px;
+    border-radius: 15px; /* Можно изменить форму */
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    box-shadow: 
+        0 0 20px rgba(255, 69, 0, 0.3),
+        inset 0 0 30px rgba(255, 69, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.mission-image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 30px rgba(255, 69, 0, 0.5),
+        inset 0 0 40px rgba(255, 69, 0, 0.2);
+}
+
+.mission-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.mission-image-wrapper:hover .mission-image {
+    transform: scale(1.1);
+}
+
+.image-caption {
+    text-align: center;
+    width: 100%;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    background-color: rgba(26, 26, 26, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.mission-description {
+    flex: 1; /* Занимает оставшееся пространство */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.description-content {
+    background-color: rgba(26, 26, 26, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.mission-details:hover .description-content {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.2);
+}
+
+.description-content h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.description-content p,
+.description-content ul {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .mission-details {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .mission-image-container {
+        flex: 0 0 250px;
+    }
+
+    .mission-image-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1726,11 +1804,14 @@
                     <h3>Древние наблюдения: Марс в мировоззрении древних цивилизаций</h3>
                     <div class="mission-details">
                         <div class="mission-image-container">
-                            <img src="img/i (17).webp" alt="Древние наблюдения Марса" class="mission-image">
+                            <div class="mission-image-wrapper">
+                                <img src="img/i (17).webp" alt="Древние наблюдения Марса" class="mission-image">
+                            </div>
                             <div class="image-caption">
                                 <p>Древнеегипетские астрономические наблюдения за Марсом</p>
                             </div>
                         </div>
+                    </div>
                         <div class="mission-description">
                             <div class="description-content">
                                 <h4>Марс в древних цивилизациях</h4>

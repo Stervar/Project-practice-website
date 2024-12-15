@@ -2083,7 +2083,38 @@
         translateX(-50%) 
         translateY(-10px);
 }
+.facts-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px; /* Добавил отступ снизу */
+    width: 100%;
+}
 
+.facts-pagination .prev-btn,
+.facts-pagination .next-btn {
+    background-color: rgba(255, 69, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.facts-pagination .page-info {
+    font-size: 16px;
+    color: #666;
+}
+
+#footer {
+    clear: both; /* Очистка обтекания */
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
     </style>
 </head>
 <body>

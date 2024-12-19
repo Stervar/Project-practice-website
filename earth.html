@@ -162,22 +162,65 @@
     opacity: 1;
 }
 
-/* Заголовки */
 .section h2 {
-    font-family: 'Orbitron', sans-serif; /* Футуристический шрифт */
-    font-size: 2.5rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
     background: linear-gradient(
-        45deg, 
-        var(--accent-color), 
-        var(--text-color)
+        135deg, 
+        var(--accent-color) 0%, 
+        var(--text-color) 50%, 
+        #2ecc71 100%
     );
+    background-size: 200% 200%;
+    color: transparent;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
     position: relative;
+    animation: gradient-move 5s ease infinite;
+    text-shadow: 
+        0 0 10px rgba(46, 204, 113, 0.3),
+        2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
+.section h2:hover {
+    letter-spacing: 8px;
+    transform: scale(1.05);
+    text-shadow: 
+        0 0 20px rgba(46, 204, 113, 0.5),
+        3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        var(--accent-color), 
+        var(--text-color),
+        transparent
+    );
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.section h2:hover::after {
+    width: 200px;
+}
 .section h2::after {
     content: '';
     position: absolute;
@@ -515,17 +558,218 @@ body::before {
 }
 
 .typing-effect {
+    position: relative;
     overflow: hidden;
     border-right: 3px solid var(--accent-color);
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: 0.1em;
+    display: inline-block;
+    max-width: 0;
     animation: 
-        typing 3.5s steps(40, end),
+        typing 3.5s steps(40, end) forwards,
         blink-caret 0.75s step-end infinite;
 }
+
+@keyframes typing {
+    from {
+        max-width: 0;
+        width: 0;
+    }
+    to {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--accent-color); }
+}
+
+/* Эффект свечения при наведении */
+.typing-effect:hover {
+    text-shadow: 
+        0 0 10px var(--accent-color),
+        0 0 20px rgba(46, 204, 113, 0.7);
+    animation-play-state: paused;
+}
+
+/* Адаптивный вариант с поддержкой разных устройств */
+@media (max-width: 768px) {
+    .typing-effect {
+        font-size: 1.2rem;
+        animation: 
+            typing 2.5s steps(30, end) forwards,
+            blink-caret 0.6s step-end infinite;
+    }
+}
+
+
+
+
+
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1400px;
+    height: 1400px;
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(30, 144, 255, 0.7) 0%,   /* Океаны */
+        rgba(46, 204, 113, 0.6) 40%,  /* Материки */
+        rgba(30, 144, 255, 0.8) 60%,  /* Глубины океанов */
+        transparent 80%
+    );
+    border-radius: 50%;
+    box-shadow: 
+        0 0 400px 200px rgba(46, 204, 113, 0.4),
+        0 0 300px 150px rgba(30, 144, 255, 0.5),
+        inset 0 0 350px 175px rgba(46, 204, 113, 0.5);
+    
+    /* Детальная текстура материков */
+    background-image: 
+        /* Северная Америка - сложная форма */
+        radial-gradient(
+            ellipse at 35% 30%, 
+            rgba(139, 69, 19, 0.8) 5%, 
+            transparent 15%
+        ),
+        radial-gradient(
+            ellipse at 40% 35%, 
+            rgba(139, 69, 19, 0.7) 6%, 
+            transparent 16%
+        ),
+        /* Южная Америка - вытянутая форма */
+        radial-gradient(
+            ellipse at 42% 55%, 
+            rgba(139, 69, 19, 0.9) 7%, 
+            transparent 17%
+        ),
+        /* Африка - треугольная форма */
+        radial-gradient(
+            ellipse at 55% 45%, 
+            rgba(139, 69, 19, 0.8) 8%, 
+            transparent 18%
+        ),
+        /* Евразия - massive */
+        radial-gradient(
+            ellipse at 65% 35%, 
+            rgba(139, 69, 19, 0.9) 9%, 
+            transparent 19%
+        ),
+        /* Australia - компактная */
+        radial-gradient(
+            ellipse at 80% 60%, 
+            rgba(139, 69, 19, 0.7) 6%, 
+            transparent 16%
+        ),
+        /* Антарктида */
+        radial-gradient(
+            ellipse at 50% 80%, 
+            rgba(255, 255, 255, 0.6) 5%, 
+            transparent 15%
+        ),
+        /* Облака */
+        repeating-radial-gradient(
+            circle at random(100%) random(100%), 
+            rgba(255,255,255,0.3) 0%, 
+            transparent 5%
+        ),
+        /* Атмосфера */
+        radial-gradient(
+            circle at center, 
+            rgba(30, 144, 255, 0.2) 0%, 
+            transparent 70%
+        );
+    
+    /* Эффекты поверхности */
+    background-blend-mode: overlay;
+    
+    /* Анимация вращения и движения */
+    animation: 
+        earthReveal 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards,
+        earthRotate 60s linear infinite,
+        earthPulse 3s ease-in-out infinite alternate,
+        cloudMove 30s linear infinite,
+        atmosphereShimmer 5s ease-in-out infinite alternate;
+    
+    z-index: 1;
+    
+    /* Дополнительные эффекты */
+    filter: 
+        brightness(1.1) 
+        contrast(1.2) 
+        saturate(1.3);
+}
+
+/* Анимация вращения Земли */
+@keyframes earthRotate {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Анимация облаков */
+@keyframes cloudMove {
+    0% { 
+        background-position: 0 0, 100% 0, 0 100%, 100% 100%; 
+    }
+    100% { 
+        background-position: 100% 100%, 0 0, 100% 0, 0 100%; 
+    }
+}
+
+/* Пульсация атмосферы */
+@keyframes atmosphereShimmer {
+    0% { 
+        filter: 
+            brightness(1.0) 
+            contrast(1.0) 
+            saturate(1.0); 
+    }
+    100% { 
+        filter: 
+            brightness(1.2) 
+            contrast(1.1) 
+            saturate(1.2); 
+    }
+}
+
+/* Появление Земли */
+@keyframes earthReveal {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+        bottom: -70%;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        bottom: -40%;
+    }
+}
+
+/* Пульсация */
+@keyframes earthPulse {
+    0% { transform: translateX(-50%) scale(1); }
+    100% { transform: translateX(-50%) scale(1.02); }
+}
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
+
 <body>
     <nav id="navigation" class="earth-navigation">
         <div class="logo-corner">
@@ -534,15 +778,14 @@ body::before {
                 <span class="earth-title-sub">EXPLORATION</span>
                 <div class="earth-icon">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="45" fill="#1E90FF"/>
-                        <path d="M20,50 Q50,20 80,50 T50,80" stroke="#228B22" stroke-width="3" fill="none"/>
-                        <circle cx="35" cy="40" r="5" fill="#FFFFFF"/>
-                        <circle cx="65" cy="40" r="5" fill="#FFFFFF"/>
-                        <path d="M40,60 Q50,70 60,60" stroke="#228B22" stroke-width="2" fill="none"/>
+                        <circle cx="50" cy="50" r="45" fill="#1E90FF"/> <!-- Основной цвет планеты -->
+                        <path d="M20,50 Q50,20 80,50 T50,80" stroke="#228B22" stroke-width="3" fill="none"/> <!-- Материки -->
+                        <circle cx="35" cy="40" r="5" fill="#FFFFFF"/> <!-- Облака -->
+                        <circle cx="65" cy="40" r="5" fill="#FFFFFF"/> <!-- Облака -->
+                        <path d="M40,60 Q50,70 60,60" stroke="#228B22" stroke-width="2" fill="none"/> <!-- Экватор -->
                     </svg>
                 </div>
             </div>
-        </div>
     
         <div class="container">
             <div class="nav-content">
@@ -1037,124 +1280,51 @@ body::before {
     
 
     <script>
-        // Функция для проверки видимости секций при прокрутке
-        function checkVisibility() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.75) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const historySections = document.querySelectorAll('.history-section');
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
             
-            console.log('Найдено секций:', historySections.length);
-            
-            historySections.forEach((section, index) => {
-                console.log(`Секция ${index + 1}:`, section);
-                section.classList.add('visible');
+            document.querySelectorAll('.parallax-section').forEach(section => {
+                section.style.transform = `
+                    perspective(1000px) 
+                    rotateX(${mouseY * 10}deg) 
+                    rotateY(${mouseX * 10}deg)
+                `;
             });
-    
-            // Пагинация и фильтрация фактов
-            const factsGrid = document.querySelector('.facts-grid');
-            const factCards = document.querySelectorAll('.fact-card');
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const searchInput = document.getElementById('fact-search');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const pageInfo = document.querySelector('.page-info');
-    
-            const factsPerPage = 6;
-            let currentPage = 1;
-            let filteredCards = Array.from(factCards);
-    
-            // Функция отображения страницы
-            function showPage(page) {
-                const startIndex = (page - 1) * factsPerPage;
-                const endIndex = startIndex + factsPerPage;
-    
-                filteredCards.forEach((card, index) => {
-                    card.style.display = 'none';
-                    if (index >= startIndex && index < endIndex) {
-                        card.style.display = 'block';
-                    }
-                });
-    
-                updatePaginationInfo();
-            }
-    
-            // Обновление информации о пагинации
-            function updatePaginationInfo() {
-                const totalPages = Math.ceil(filteredCards.length / factsPerPage);
-                pageInfo.textContent = `Страница ${currentPage} из ${totalPages}`;
-                
-                prevBtn.disabled = currentPage === 1;
-                nextBtn.disabled = currentPage === totalPages;
-            }
-    
-            // Обработчики кнопок пагинации
-            prevBtn.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    showPage(currentPage);
-                }
-            });
-    
-            nextBtn.addEventListener('click', () => {
-                const totalPages = Math.ceil(filteredCards.length / factsPerPage);
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    showPage(currentPage);
-                }
-            });
-    
-            // Фильтрация по категориям
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Убираем активный класс со всех кнопок
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-    
-                    const category = button.dataset.category;
-    
-                    // Фильтруем карточки
-                    if (category === 'all') {
-                        filteredCards = Array.from(factCards);
-                    } else {
-                        filteredCards = Array.from(factCards).filter(card => 
-                            card.dataset.category === category
-                        );
-                    }
-    
-                    currentPage = 1;
-                    showPage(currentPage);
-                });
-            });
-    
-            // Поиск фактов
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-    
-                filteredCards = Array.from(factCards).filter(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const description = card.querySelector('p').textContent.toLowerCase();
-                    return title.includes(searchTerm) || description.includes(searchTerm);
-                });
-    
-                currentPage = 1;
-                showPage(currentPage);
-            });
-    
-            // Инициализация первой страницы
-            showPage(currentPage);
         });
-    
-        // Обработчики видимости секций
-        window.addEventListener('scroll', checkVisibility);
-        window.addEventListener('load', checkVisibility);
+
+        class TypingEffect {
+            constructor(element, text, speed = 100) {
+                this.element = element;
+                this.text = text;
+                this.speed = speed;
+                this.index = 0;
+            }
+        
+            start() {
+                this.element.textContent = '';
+                this.type();
+            }
+        
+            type() {
+                if (this.index < this.text.length) {
+                    this.element.textContent += this.text.charAt(this.index);
+                    this.index++;
+                    setTimeout(() => this.type(), this.speed);
+                }
+            }
+        }
+        
+        // Пример использования
+        document.addEventListener('DOMContentLoaded', () => {
+            const typingElements = document.querySelectorAll('.typing-effect');
+            
+            typingElements.forEach(el => {
+                const text = el.getAttribute('data-text');
+                const typingEffect = new TypingEffect(el, text);
+                typingEffect.start();
+            });
+        });
     </script>
     </body>
     </html>

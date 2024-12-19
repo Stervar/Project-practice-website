@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Меркурий",
+        "description": "Ближайшая планета к Солнцу, самая маленькая планета в Солнечной системе.",
+        "diameter": 4879,
+        "distanceFromSun": 57.9,
+        "yearLength": 88
+    },
+    {
+        "name": "Венера",
+        "description": "Вторая планета от Солнца, известная своей раскаленной поверхностью.",
+        "diameter": 12104,
+        "distanceFromSun": 108.2,
+        "yearLength": 225
+    },
+    {
+        "name": "Земля",
+        "description": "Третья планета от Солнца, единственная известная планета с жизнью.",
+        "diameter": 12742,
+        "distanceFromSun": 149.6,
+        "yearLength": 365
+    },
+    {
+        "name": "Марс",
+        "description": "Четвертая планета от Солнца, известная как Красная планета.",
+        "diameter": 6779,
+        "distanceFromSun": 227.9,
+        "yearLength": 687
+    },
+    {
+        "name": "Юпитер",
+        "description": "Пятая планета от Солнца и самая большая в Солнечной системе.",
+        "diameter": 139820,
+        "distanceFromSun": 778.5,
+        "yearLength": 4333
+    },
+    {
+        "name": "Сатурн",
+        "description": "Шестая планета от Солнца, известная своими кольцами.",
+        "diameter": 116460,
+        "distanceFromSun": 1427,
+        "yearLength": 10759
+    },
+    {
+        "name": "Уран",
+        "description": "Седьмая планета от Солнца, известная своим голубым цветом.",
+        "diameter": 50724,
+        "distanceFromSun": 2871,
+        "yearLength": 30687
+    },
+    {
+        "name": "Нептун",
+        "description": "Восьмая планета от Солнца, известная своими сильными ветрами.",
+        "diameter": 49244,
+        "distanceFromSun": 4497,
+        "yearLength": 60190
+    }
+]

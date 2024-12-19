@@ -1,0 +1,263 @@
+solar-system-project/
+│
+├── index.html
+├── css/
+│   ├── main.css
+│   ├── planets.css
+│   └── animations.css
+│
+├── js/
+│   ├── solar-system.js
+│   ├── planet-interactions.js
+│   └── data-loader.js
+│
+├── data/
+│   ├── planets.json
+│   └── moons.json
+│
+├── images/
+│   ├── planets/
+│   │   ├── mercury.jpg
+│   │   ├── venus.jpg
+│   │   └── ...
+│   └── backgrounds/
+│       ├── space-1.jpg
+│       └── space-2.jpg
+│
+└── pages/
+    ├── mercury.html
+    ├── venus.html
+    └── ...
+
+
+
+
+    <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космическая Навигация</title>
+    <style>
+        :root {
+            --bg-color: #0a0a1a;
+            --text-color: #e0e0ff;
+            --orbit-color: rgba(255,255,255,0.1);
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: var(--bg-color);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .solar-system-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+            background: radial-gradient(
+                ellipse at bottom, 
+                rgba(10,10,26,1) 0%, 
+                rgba(0,0,10,1) 100%
+            );
+        }
+
+        .solar-system {
+            position: relative;
+            width: 80vmin;
+            height: 80vmin;
+            transform-style: preserve-3d;
+            animation: rotate-system 100s linear infinite;
+        }
+
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(
+                circle at center, 
+                #FFA500, 
+                #FF4500
+            );
+            border-radius: 50%;
+            box-shadow: 
+                0 0 60px #FF4500,
+                0 0 120px #FFA500;
+            z-index: 10;
+        }
+
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(75deg);
+            border: 1px solid var(--orbit-color);
+            border-radius: 50%;
+            animation: rotate-orbit linear infinite;
+        }
+
+        .planet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transform-origin: center;
+            transition: all 0.3s ease;
+        }
+
+        .planet:hover {
+            transform: scale(1.5);
+            z-index: 100;
+        }
+
+        .planet-name {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-color);
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .planet:hover .planet-name {
+            opacity: 1;
+        }
+
+        /* Цвета планет */
+        .mercury { background-color: #8C7853; }
+        .venus { background-color: #FFA500; }
+        .earth { background-color: #4169E1; }
+        .mars { background-color: #B22222; }
+        .jupiter { background-color: #D2691E; }
+        .saturn { background-color: #F5DEB3; }
+        .uranus { background-color: #40E0D0; }
+        .neptune { background-color: #4682B4; }
+        .pluto { background-color: #CD853F; }
+
+        /* Анимации */
+        @keyframes rotate-system {
+            from { transform: rotateZ(0deg); }
+            to { transform: rotateZ(360deg); }
+        }
+
+        @keyframes rotate-orbit {
+            from { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg); }
+            to { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg); }
+        }
+
+        /* Звездный фон */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="solar-system-container">
+        <div class="solar-system">
+            <div class="sun"></div>
+
+            <!-- Внутренние планеты -->
+            <div class="orbit" style="width: 200px; height: 200px; animation-duration: 10s;">
+                <div class="planet mercury" style="left: 90px; top: -10px;">
+                    <div class="planet-name">Меркурий</div>
+                </div>
+            </div>
+
+            <div class="orbit" style="width: 300px; height: 300px; animation-duration: 20s;">
+                <div class="planet venus" style="left: 140px; top: -10px;">
+                    <div class="planet-name">Венера</div>
+                </div>
+            </div>
+
+            <div class="orbit" style="width: 400px; height: 400px; animation-duration: 30s;">
+                <div class="planet earth" style="left: 190px; top: -10px;">
+                    <div class="planet-name">Земля</div>
+                </div>
+            </div>
+
+            <div class="orbit" style="width: 500px; height: 500px; animation-duration: 40s;">
+                <div class="planet mars" style="left: 240px; top: -10px;">
+                    <div class="planet-name">Марс</div>
+                </div>
+            </div>
+
+            <!-- Газовые гиганты -->
+            <div class="orbit" style="width: 600px; height: 600px; animation-duration: 50s;">
+                <div class="planet jupiter" style="left: 290px; top: -10px;">
+                    <div class="planet-name">Юпитер</div>
+                </div>
+            </div>
+
+            <div class="orbit" style="width: 700px; height: 700px; animation-duration: 60s;">
+                <div class="planet saturn" style="left: 340px; top: -10px;">
+                    <div class="planet-name">Сатурн</div>
+                </div>
+            </div>
+
+            <!-- Ледяные гиганты -->
+            <div class="orbit" style="width: 800px; height: 800px; animation-duration: 70s;">
+                <div class="planet uranus" style="left: 390px; top: -10px;">
+                    <div class="planet-name">Уран</div>
+                </div>
+            </div>
+
+            <div class="orbit" style="width: 900px; height: 900px; animation-duration: 80s;">
+                <div class="planet neptune" style="left: 440px; top: -10px;">
+                    <div class="planet-name">Нептун</div>
+                </div>
+            </div>
+
+            <!-- Карликовые планеты -->
+            <div class="orbit" style="width: 1000px; height: 1000px; animation-duration: 90s;">
+                <div class="planet pluto" style="left: 490px; top: -10px;">
+                    <div class="planet-name">Плутон</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stars"></div>
+
+    <script>
+        // Генерация звезд
+        function createStars() {
+            const starsContainer = document.querySelector ('.stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 3 + 1; // Размер звезды
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+</body>
+</html>

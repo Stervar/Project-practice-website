@@ -448,6 +448,45 @@ body::before {
             scale(1.05);
     }
 }
+
+.fact-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center, 
+        rgba(46, 204, 113, 0.1), 
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.fact-card:hover::before {
+    opacity: 1;
+}
+
+.fact-card:hover {
+    transform: 
+        perspective(1000px) 
+        rotateX(10deg) 
+        rotateY(10deg) 
+        scale(1.05);
+    box-shadow: 
+        0 20px 30px rgba(46, 204, 113, 0.2),
+        0 0 50px var(--earth-glow);
+}
     </style>
 </head>
 <body>

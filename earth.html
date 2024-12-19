@@ -107,25 +107,26 @@
 }
 
 .nav-link {
-    color: var(--text-color);
-    text-decoration: none;
     position: relative;
-    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-.nav-link::after {
+.nav-link::before {
     content: '';
     position: absolute;
-    width: 0;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
     height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background-color: var(--accent-color);
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        var(--accent-color)
+    );
     transition: all 0.3s ease;
 }
 
-.nav-link:hover::after {
-    width: 100%;
+.nav-link:hover::before {
     left: 0;
 }
 
@@ -163,15 +164,18 @@
 
 /* Заголовки */
 .section h2 {
-    text-align: center;
-    color: var(--accent-color);
-    position: relative;
-    margin-bottom: 30px;
+    font-family: 'Orbitron', sans-serif; /* Футуристический шрифт */
+    font-size: 2.5rem;
+    background: linear-gradient(
+        45deg, 
+        var(--accent-color), 
+        var(--text-color)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    text-shadow: 
-        0 0 10px var(--earth-glow),
-        2px 2px 5px rgba(0,0,0,0.5);
+    letter-spacing: 4px;
+    position: relative;
 }
 
 .section h2::after {
@@ -179,15 +183,16 @@
     position: absolute;
     bottom: -10px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
+    width: 150px;
+    height: 4px;
     background: linear-gradient(
         to right, 
         transparent, 
         var(--accent-color), 
+        var(--text-color),
         transparent
     );
+    transform: translateX(-50%);
 }
 
 /* Hero секция */
@@ -282,19 +287,19 @@
 
 /* Карточки фактов */
 .fact-card {
-    background: rgba(26, 41, 128, 0.3);
-    border-radius: 15px;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
 .fact-card:hover {
-    border-color: var(--accent-color);
-    transform: scale(1.03);
-    box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+    transform: 
+        rotateX(10deg) 
+        rotateY(10deg) 
+        scale(1.05);
+    box-shadow: 
+        0 20px 30px rgba(46, 204, 113, 0.2),
+        0 0 50px var(--earth-glow);
 }
 
 .fact-number {
@@ -368,6 +373,79 @@
 
 .page-info {
     color: var(--text-color);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: calc(var(--delay) * 0.2s);
+}
+
+body::before {
+    background-image: 
+        radial-gradient(#ffffff 1px, transparent 1px),
+        radial-gradient(#ffffff 1px, transparent 1px);
+    animation: 
+        twinkle 3s infinite alternate,
+        moveStars 50s linear infinite;
+}
+
+@keyframes moveStars {
+    0% { background-position: 0 0, 25px 25px; }
+    100% { background-position: 500px 500px, 525px 525px; }
+}
+
+
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+    perspective: 1px;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(46, 204, 113, 0.1) 0%, 
+        rgba(30, 144, 255, 0.2) 50%, 
+        var(--primary-bg) 100%
+    );
+}
+
+.earth-logo {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    animation: 
+        rotate-earth 20s linear infinite,
+        float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { 
+        transform: 
+            translateY(-20px) 
+            rotate(10deg) 
+            scale(1.05);
+    }
 }
     </style>
 </head>

@@ -487,6 +487,22 @@ body::before {
         0 20px 30px rgba(46, 204, 113, 0.2),
         0 0 50px var(--earth-glow);
 }
+
+#navigation {
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--accent-color);
+    box-shadow: 
+        0 0 20px rgba(46, 204, 113, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#navigation:hover {
+    box-shadow: 
+        0 0 30px rgba(46, 204, 113, 0.3),
+        0 5px 20px rgba(0, 0, 0, 0.3);
+}
     </style>
 </head>
 <body>

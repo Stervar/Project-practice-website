@@ -1,58 +1,68 @@
-[
-    {
-        "name": "Меркурий",
-        "description": "Ближайшая планета к Солнцу, самая маленькая планета в Солнечной системе.",
-        "diameter": 4879,
-        "distanceFromSun": 57.9,
-        "yearLength": 88
-    },
-    {
-        "name": "Венера",
-        "description": "Вторая планета от Солнца, известная своей раскаленной поверхностью.",
-        "diameter": 12104,
-        "distanceFromSun": 108.2,
-        "yearLength": 225
-    },
-    {
-        "name": "Земля",
-        "description": "Третья планета от Солнца, единственная известная планета с жизнью.",
-        "diameter": 12742,
-        "distanceFromSun": 149.6,
-        "yearLength": 365
-    },
-    {
-        "name": "Марс",
-        "description": "Четвертая планета от Солнца, известная как Красная планета.",
-        "diameter": 6779,
-        "distanceFromSun": 227.9,
-        "yearLength": 687
-    },
-    {
-        "name": "Юпитер",
-        "description": "Пятая планета от Солнца и самая большая в Солнечной системе.",
-        "diameter": 139820,
-        "distanceFromSun": 778.5,
-        "yearLength": 4333
-    },
-    {
-        "name": "Сатурн",
-        "description": "Шестая планета от Солнца, известная своими кольцами.",
-        "diameter": 116460,
-        "distanceFromSun": 1427,
-        "yearLength": 10759
-    },
-    {
-        "name": "Уран",
-        "description": "Седьмая планета от Солнца, известная своим голубым цветом.",
-        "diameter": 50724,
-        "distanceFromSun": 2871,
-        "yearLength": 30687
-    },
-    {
-        "name": "Нептун",
-        "description": "Восьмая планета от Солнца, известная своими сильными ветрами.",
-        "diameter": 49244,
-        "distanceFromSun": 4497,
-        "yearLength": 60190
-    }
-]
+{
+    "planets": [
+        {
+            "name": "Mercury",
+            "size": 2,
+            "distance": 20,
+            "color": "#8C7853",
+            "orbitPeriod": 0.24,
+            "description": "Ближайшая планета к Солнцу, каменистая планета с экстремальными температурами."
+        },
+        {
+            "name": "Venus", 
+            "size": 3,
+            "distance": 35,
+            "color": "#FFA500",
+            "orbitPeriod": 0.62,
+            "description": "Вторая планета от Солнца, известная своей плотной атмосферой."
+        },
+        {
+            "name": "Earth",
+            "size": 4,
+            "distance": 50,
+            "color": "#1E90FF",
+            "orbitPeriod": 1,
+            "description": "Наша родная планета, единственное известное место с жизнью."
+        },
+        {
+            "name": "Mars",
+            "size": 3,
+            "distance": 70,
+            "color": "#B22222",
+            "orbitPeriod": 1.88,
+            "description": "Красная планета с потенциалом для будущей колонизации."
+        },
+        {
+            "name": "Jupiter",
+            "size": 8,
+            "distance": 100,
+            "color": "#D2691E",
+            "orbitPeriod": 11.86,
+            "description": "Крупнейшая планета в солнечной системе с мощной атмосферой."
+        },
+        {
+            "name": "Saturn",
+            "size": 7,
+            "distance": 130,
+            "color": "#F5DEB3",
+            "orbitPeriod": 29.46,
+            "description": "Планета с уникальной системой колец, видимых даже с Земли."
+        },
+        {
+            "name": "Uranus",
+            "size": 5,
+            "distance": 160,
+            "color": "#87CEEB",
+            "orbitPeriod": 84.01,
+            "description": "Ледяной гигант с необычным наклоном оси вращения."
+        },
+        {
+            "name": "Neptune",
+            "size": 5,
+            "distance": 190,
+            "color": "#4169E1",
+            "orbitPeriod": 164.8,
+            "description": "Последняя из больших планет, холодный и ветреный мир."
+        }
+    ]
+}

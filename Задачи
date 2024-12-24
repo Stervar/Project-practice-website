@@ -15,19 +15,17 @@ solar-system-project/
 │   ├── planets.json
 │   └── moons.json
 │
-├── images/
-│   ├── planets/
-│   │   ├── mercury.jpg
-│   │   ├── venus.jpg
-│   │   └── ...
-│   └── backgrounds/
-│       ├── space-1.jpg
-│       └── space-2.jpg
 │
 └── pages/
     ├── mercury.html
     ├── venus.html
-    └── ...
+    └── mars.html
+    └── jupiter.html
+    ├── earth.html
+    ├── saturn.html
+    ├── neptune.html
+    ├── uranus.html
+    ├── sun.html
 
 
 

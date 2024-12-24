@@ -2,48 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Интерактивная Солнечная Система</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="/manifest.json">
-    
-    <!-- PWA -->
-    <meta name="theme-color" content="#0a0a1a">
-    <link rel="apple-touch-icon" href="/assets/icons/solar-system-icon.png">
-    
-    <!-- Стили -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/solar-system.css">
-    <link rel="stylesheet" href="/css/responsive.css">
+    <title>Интерактивная Солнечная система</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="app-container">
-        <div id="solar-system-container">
-            <canvas id="solar-system-canvas"></canvas>
-            
-            <div id="planet-info-panel" class="info-panel"></div>
-            
-            <div id="loading-overlay" class="loading-screen">
-                <div class="loader">
-                    <div class="spinner"></div>
-                    <p>Загрузка солнечной системы...</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="space-background"></div>
+    <div id="solar-system-container"></div>
+    <div id="cosmic-effects-container"></div>
 
-    <!-- Библиотеки -->
-    <script src="/js/libs/three.min.js"></script>
-    <script src="/js/libs/gsap.min.js"></script>
-    
-    <!-- Основные скрипты -->
-    <script src="/js/core/logger.js"></script>
-    <script src="/js/core/event-manager.js"></script>
-    <script src="/js/core/data-loader.js"></script>
-    <script src="/js/core/performance-optimizer.js"></script>
-    <script src="/js/core/solar-system.js"></script>
-    <script src="/js/core/planet-interactions.js"></script>
-    
-    <!-- Точка входа -->
-    <script src="/js/app.js"></script>
+    <script src="js/solar-system.js"></script>
 </body>
 </html>

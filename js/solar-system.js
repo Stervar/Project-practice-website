@@ -7,7 +7,7 @@ class SolarSystem {
             name: 'sun',
             size: 250 * this.scaleFactor,
             color: 'radial-gradient(circle, #ffff00, #ff8c00)',
-            link: 'planets/sun.html'
+            link: 'sun.html'
         };
 
         this.planets = [
@@ -18,7 +18,7 @@ class SolarSystem {
                 speed: 0.02,
                 color: '#8c7853',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/mercury.html'
+                link: 'mercury.html'
             },
             {
                 name: 'venus',
@@ -27,7 +27,7 @@ class SolarSystem {
                 speed: 0.015,
                 color: '#ffa500',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/venus.html'
+                link: 'venus.html'
             },
             {
                 name: 'earth',
@@ -36,7 +36,7 @@ class SolarSystem {
                 speed: 0.01,
                 color: '#0077be',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/earth.html'
+                link: 'earth.html'
             },
             {
                 name: 'mars',
@@ -45,7 +45,7 @@ class SolarSystem {
                 speed: 0.008,
                 color: '#ff4500',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/mars.html'
+                link: 'mars.html'
             },
             {
                 name: 'jupiter',
@@ -54,7 +54,7 @@ class SolarSystem {
                 speed: 0.005,
                 color: '#ff7f50',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/jupiter.html'
+                link: 'jupiter.html'
             },
             {
                 name: 'saturn',
@@ -63,7 +63,7 @@ class SolarSystem {
                 speed: 0.003,
                 color: '#f5deb3',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/saturn.html'
+                link: 'saturn.html'
             },
             {
                 name: 'uranus',
@@ -72,7 +72,7 @@ class SolarSystem {
                 speed: 0.002,
                 color: '#87ceeb',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/uranus.html'
+                link: 'uranus.html'
             },
             {
                 name: 'neptune',
@@ -81,7 +81,7 @@ class SolarSystem {
                 speed: 0.001,
                 color: '#4169e1',
                 startAngle: Math.random() * Math.PI * 2,
-                link: 'planets/neptune.html'
+                link: 'neptune.html'
             }
         ];
 

@@ -6,12 +6,19 @@
     <title>Марс - Красная Планета</title>
     <style>
         :root {
-            --primary-bg: #000000;
-            --secondary-bg: #1a1a1a;
-            --accent-color: #ff4500;
-            --text-color: #ffffff;
-            --secondary-text: #ff6b35;
-        }
+    /* Основные цвета Земли */
+    --primary-bg: #2196F3;       /* Глубокий синий - цвет океана */
+    --secondary-bg: #4CAF50;     /* Зеленый - цвет растительности */
+    --accent-color: #03A9F4;     /* Яркий голубой - цвет неба */
+    --text-color: #FFFFFF;       /* Белый для контраста */
+    --secondary-text: #E0F7FA;   /* Светло-голубой */
+
+    /* Дополнительные оттенки */
+    --earth-blue: #1565C0;       /* Темно-синий */
+    --earth-green: #2E7D32;      /* Насыщенный зеленый */
+    --earth-light-blue: #81D4FA; /* Легкий голубой */
+    --earth-dark-green: #1B5E20; /* Темно-зеленый */
+}
 
         * {
             margin: 0;
@@ -22,8 +29,8 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: var(--primary-bg);
-            color: var(--text-color);
+            background-color: var(--primary-bg); /* Глубокий синий */
+            color: var(--text-color); /* Белый текст */
             line-height: 1.6;
         }
 
@@ -126,14 +133,7 @@
                 margin-top: 10px;
     }
 }
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary-bg), #300000);
-            position: relative;
-            overflow: hidden;
-        }
+
 
         #hero::before {
             content: '';
@@ -156,21 +156,21 @@
 
         .hero-content h1 {
             font-size: 4rem;
-            color: var(--accent-color);
+            color: var(--accent-color); /* Яркий голубой */
             margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(255, 69, 0, 0.7);
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Легкая тень для контраста */
         }
-
         .section {
             padding: 100px 0;
-            background-color: var(--secondary-bg);
+            background-color: var(--secondary-bg); /* Зеленый фон для секций */
             margin-bottom: 20px;
             opacity: 0;
             transform: translateY(50px);
             transition: all 1s ease;
-            border-top: 3px solid var(--accent-color);
+            border-top: 3px solid var(--accent-color); /* Яркий голубой */
             border-bottom: 3px solid var(--accent-color);
         }
+        
 
         .section.visible {
             opacity: 1;
@@ -178,10 +178,10 @@
         }
 
         .section h2 {
-            color: var(--accent-color);
+            color: var(--earth -green); /* Насыщенный зеленый заголовок */
             text-align: center;
             margin-bottom: 30px;
-            text-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Легкая тень для контраста */
         }
 
         .section-grid {
@@ -203,18 +203,14 @@
             box-shadow: 0 15px 30px rgba(255, 69, 0, 0.6);
         }
 
-        .fact-card {
-            background-color: var(--primary-bg);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid var(--accent-color);
-            transition: all 0.5s ease;
+        .fact-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Увеличенная тень при наведении */
         }
 
         .fact-card:hover {
             transform: translateX(10px);
-            box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Увеличенная тень при наведении */
         }
 
         .fact-card h3 {
@@ -293,12 +289,12 @@
             flex: 1;
 }
 
-        .history-section h3 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
+.history-section h3 {
+    color: var(--accent-color); /* Яркий голубой для заголовков */
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
 }
 
         .mission-description p {
@@ -384,7 +380,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--primary-bg), #1a0000);
+    background: linear-gradient(135deg, var(--primary-bg), var(--earth-light-blue)); /* Градиент от синего к легкому голубому */
     position: relative;
     overflow: hidden;
 }
@@ -480,14 +476,11 @@
     }
 }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            text-shadow: 
-                0 0 30px rgba(255, 69, 0, 0.7),
-                2px 2px 15px rgba(0,0,0,0.6);
-            letter-spacing: 2px;
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--accent-color); /* Яркий голубой */
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Легкая тень для контраста */
 }
 
         .hero-content p {
@@ -978,24 +971,21 @@
 
 .explore-button,
 #back-button {
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: 2px solid var(--accent-color);
-    color: var(--text-color);
-    padding: 10px 15px;
+    background-color: var(--earth-green); /* Насыщенный зеленый */
+    color: var(--text-color); /* Белый текст */
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    text-decoration: none;
+    cursor: pointer;
+    z-index: 1100;
     transition: all 0.3s ease;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Легкая тень */
 }
-
 .explore-button:hover,
 #back-button:hover {
-    background-color: var(--accent-color);
-    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Увеличенная тень при наведении */
 }
 
 .button-icon {
@@ -1458,8 +1448,8 @@
 }
 
 .fact-card:hover {
-    transform: scale(1.05) translateZ(50px);
-    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2);
+    transform: translateX(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Увеличенная тень при наведении */
 }
 
 .fact-card:hover::before {

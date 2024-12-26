@@ -6,10 +6,55 @@
     <title>Интерактивная Солнечная система</title>
     <link rel="stylesheet" href="css/main.css">
     <style>
+        /* Стили для заставки */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+            color: #03A9F4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            z-index: 2000; /* Чтобы заставка была поверх всего */
+            opacity: 1;
+            transition: opacity 1s ease;
+            text-shadow: 0 0 20px rgba(3, 169, 244, 0.8), 0 0 30px rgba(3, 169, 244, 0.5);
+        }
+
+        /* Анимация текста */
+        .splash-text {
+            animation: fadeIn 2s ease-in-out, moveUp 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveUp {
+            0% {
+                transform: translateY(50px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
         /* Стили для навигации */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background: url('space-background.jpg') no-repeat center center fixed; /* Фоновое изображение */
+            background-size: cover; /* Заполнение фона */
         }
 
         nav {
@@ -20,6 +65,11 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s; /* Плавный переход фона */
+        }
+
+        nav:hover {
+            background-color: rgba(0, 0, 0, 1); /* Изменение фона при наведении */
         }
 
         nav ul {
@@ -34,11 +84,11 @@
         }
 
         nav ul li a {
-            color: #FFFFFF;
+            color: rgba(255, 255, 255, 0.5); /* Прозрачный цвет текста */
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, transform 0.3s, color 0.3s; /* Плавные переходы */
             position: relative;
         }
 
@@ -54,32 +104,39 @@
         }
 
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
+            color: #FFFFFF; /* Цвет текста при наведении */
+            transform: scale(1.1); /* Увеличение кнопки при наведении */
         }
 
         nav ul li a:hover::after {
             width: 100%;
             left: 0;
         }
+
+        nav ul li a:active {
+            box-shadow: 0 0 20px rgba(3, 169, 244, 0.8); /* Эффект свечения при нажатии */
+        }
     </style>
 </head>
 <body>
+    <div id="splash-screen">
+        <div class="splash-text">Солнечная система</div>
+    </div> <!-- Заставка -->
+
     <header>
         <nav>
             <ul>
-                <li><a href="#mercury">Меркурий</a></li>
-                <li><a href="#venus">Венера</a></li>
-                <li><a href="#earth">Земля</a></li>
-                <li><a href="#mars">Марс</a></li>
-                <li><a href="#jupiter">Юпитер</a></li>
-                <li><a href="#saturn">Сатурн</a></li>
-                <li><a href="#uranus">Уран</a></li>
-                <li><a href="#neptune">Нептун</a></li>
+                <li><a href="mercury.html">Меркурий</a></li>
+                <li><a href="venus.html">Венера</a></li>
+                <li><a href="earth.html">Земля</a></li>
+                <li><a href="mars.html">Марс</a></li>
+                <li><a href="jupiter.html">Юпитер</a></li>
+                <li><a href="saturn.html">Сатурн</a></li>
+                <li><a href="uranus.html">Уран</a></li>
+                <li><a href="neptune.html">Нептун</a></li>
             </ul>
         </nav>
     </header>
-    
     <div id="space-background"></div>
     <div id="solar-system-container"></div>
     <div id="cosmic-effects-container"></div>
@@ -95,5 +152,16 @@
     <footer>
         <p>© 2024 Интерактивная Солнечная система</p>
     </footer>
+
+    <script>
+        // Убираем заставку через 5 секунд
+        setTimeout(() => {
+            const splashScreen = document.getElementById('splash-screen');
+            splashScreen.style.opacity = '0';
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 1000); // Задержка для плавного исчезновения
+        }, 5000);
+    </script>
 </body>
 </html>

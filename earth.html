@@ -20,20 +20,25 @@
     --earth-dark-green: #1B5E20; /* Темно-зеленый */
 }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: var(--primary-bg); /* Глубокий синий */
-            color: var(--text-color); /* Белый текст */
-            line-height: 1.6;
-        }
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    background: linear-gradient(
+        135deg, 
+        var(--primary-bg), 
+        var(--earth-light-blue)
+    );
+}
         #back-button {
             position: fixed;
             top: 20px;
@@ -104,24 +109,21 @@
             gap: 20px;
 }
 
-        .explore-button {
-            background-color: var(--accent-color);
-            color: var(--primary-bg);
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+.explore-button {
+    background-color: var(--earth-green);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
 
-        .explore-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+.explore-button:hover {
+    background-color: var(--earth-dark-green);
+    transform: scale(1.05);
 }
-
         /* Медиа-запрос для адаптивности */
         @media (max-width: 992px) {
             .nav-left {
@@ -155,27 +157,24 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            color: var(--accent-color); /* Яркий голубой */
-            margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Легкая тень для контраста */
+            color: var(--earth-dark-green);
         }
-        .section {
-            padding: 100px 0;
-            background-color: var(--secondary-bg); /* Зеленый фон для секций */
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-            border-top: 3px solid var(--accent-color); /* Яркий голубой */
-            border-bottom: 3px solid var(--accent-color);
-        }
-        
+/* Глобальные эффекты */
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+    background: rgba(26, 26, 26, 0.7);
+    border-radius: 15px;
+    padding: 50px 0;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 128, 0, 0.2);
+}
 
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
         .section h2 {
             color: var(--earth -green); /* Насыщенный зеленый заголовок */
@@ -190,14 +189,15 @@
             gap: 30px;
             align-items: center;
         }
+        
 
         .section-image {
             width: 100%;
             border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 128, 0, 0.3);
             transition: transform 0.5s ease;
         }
-
+        
         .section-image:hover {
             transform: scale(1.05);
             box-shadow: 0 15px 30px rgba(255, 69, 0, 0.6);
@@ -376,11 +376,12 @@
             opacity: 1;
             transform: translateY(0);
 }
+
 #hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--primary-bg), var(--earth-light-blue)); /* Градиент от синего к легкому голубому */
+    background: linear-gradient(135deg, var(--primary-bg), var(--earth-light-blue)); 
     position: relative;
     overflow: hidden;
 }
@@ -394,8 +395,8 @@
     height: 100%;
     background: radial-gradient(
         ellipse at center, 
-        rgba(139, 69, 19, 0.1) 0%, 
-        rgba(88, 41, 0, 0.3) 50%, 
+        rgba(0, 128, 0, 0.1) 0%, 
+        rgba(0, 100, 0, 0.3) 50%, 
         var(--primary-bg) 100%
     );
     z-index: 1;
@@ -411,30 +412,36 @@
     height: 1200px;
     background: radial-gradient(
         ellipse at center, 
-        rgba(255, 99, 71, 0.05) 0%,  /* Темно-красный низкой интенсивности */
-        rgba(178, 34, 34, 0.1) 20%,  /* Более насыщенный красный */
-        rgba(139, 69, 19, 0.2) 40%,  /* Коричневатый оттенок */
-        rgba(88, 41, 0, 0.3) 60%,    /* Темный оттенок */
+        rgba(0, 128, 255, 0.2) 0%,   /* Синий цвет океанов */
+        rgba(0, 200, 100, 0.3) 20%,  /* Зеленый цвет суши */
+        rgba(255, 255, 255, 0.2) 40%, /* Белый цвет облаков */
+        rgba(0, 100, 200, 0.1) 60%,   /* Темно-синий фон */
         transparent 80%
     );
     border-radius: 50%;
     box-shadow: 
-        0 0 300px 150px rgba(255, 69, 0, 0.05),
-        0 0 200px 100px rgba(139, 69, 19, 0.1),
-        inset 0 0 250px 100px rgba(88, 41, 0, 0.2);
+        0 0 300px 150px rgba(0, 100, 255, 0.1),
+        0 0 200px 100px rgba(0, 200, 100, 0.1),
+        inset 0 0 250px 100px rgba(255, 255, 255, 0.1);
     
-    /* Эффект текстуры */
     background-image: 
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 5%, transparent 5%),
-        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.1) 5%, transparent 5%);
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 5%, transparent 5%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.3) 5%, transparent 5%),
+        linear-gradient(45deg, 
+            rgba(0, 128, 255, 0.2) 0%, 
+            rgba(0, 200, 100, 0.3) 50%, 
+            rgba(255, 255, 255, 0.2) 100%
+        );
     
     animation: 
-        marsReveal 2s ease-out,
-        marsRotate 50s linear infinite;
+        earthReveal 2s ease-out,
+        earthRotate 50s linear infinite,
+        earthCloudMovement 30s linear infinite;
     z-index: 1;
+    border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
-@keyframes marsReveal {
+@keyframes earthReveal {
     0% {
         opacity: 0;
         transform: translateX(-50%) scale(0.7);
@@ -447,7 +454,7 @@
     }
 }
 
-@keyframes marsRotate {
+@keyframes earthRotate {
     0% {
         transform: translateX(-50%) rotate(0deg);
     }
@@ -477,19 +484,10 @@
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    color: var(--accent-color); /* Яркий голубой */
-    margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Легкая тень для контраста */
+    color: var(--earth-dark-green);
 }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            color: var(--text-color);
-            opacity: 0.8;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+.hero-content p {
+    color: var(--earth-green);
 }
 
         /* Адаптивность */
@@ -647,18 +645,28 @@
             }
 }
 
-        /* Дополнительные анимации и эффекты */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
         .mars-channels-section {
             animation: fadeIn 0.7s ease-out;
 }
@@ -865,6 +873,7 @@
         grid-template-columns: 1fr;
     }
 }
+
 #history h2 {
     font-size: 3.5rem;
     text-transform: uppercase;
@@ -874,12 +883,14 @@
     overflow: hidden;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    border: 2px solid #ff4500;
+    border: 2px solid var(--earth-green);
     box-shadow: 
-        0 0 20px rgba(255,69,0,0.5),
-        inset 0 0 30px rgba(255,69,0,0.3);
+        0 0 20px rgba(0, 128, 0, 0.5), 
+        inset 0 0 30px rgba(0, 100, 0, 0.3);
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
 }
-
 #history h2::before {
     content: '';
     position: absolute;
@@ -1018,12 +1029,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--accent-color);
+    background-color: var(--earth-green);
     transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--accent-color);
+    color: var(--earth-green);
 }
 
 .nav-link:hover::after {
@@ -1045,6 +1056,7 @@
         align-items: center;
     }
 }
+
 .logo-corner {
     position: fixed;
     top: 20px;
@@ -1052,7 +1064,7 @@
     z-index: 1100;
 }
 
-.mars-logo {
+.earth-logo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1060,20 +1072,20 @@
     backdrop-filter: blur(10px);
     padding: 15px;
     border-radius: 10px;
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--earth-green);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.mars-title-main {
+.earth-title-main {
     font-size: 1.8rem;
     font-weight: 900;
-    color: var(--accent-color);
+    color: var(--earth-green);
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 5px;
 }
 
-.mars-title-sub {
+.earth-title-sub {
     font-size: 0.8rem;
     color: var(--text-color);
     opacity: 0.7;
@@ -1081,7 +1093,7 @@
     margin-bottom: 10px;
 }
 
-.mars-icon {
+.earth-icon {
     width: 80px;
     height: 80px;
     margin-top: 10px;
@@ -1097,13 +1109,13 @@
     }
 }
 
-.mars-icon svg {
+.earth-icon svg {
     width: 100%;
     height: 100%;
     transition: transform 0.3s ease;
 }
 
-.mars-logo:hover .mars-icon svg {
+.earth-logo:hover .earth-icon svg {
     transform: scale(1.1);
 }
 
@@ -1131,6 +1143,7 @@
         height: 60px;
     }
 }
+
 #research h2 {
     font-size: 3rem;
     text-transform: uppercase;
@@ -1140,10 +1153,10 @@
     overflow: hidden;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    border: 2px solid #ff4500;
+    border: 2px solid var(--earth-green);
     box-shadow: 
-        0 0 20px rgba(255,69,0,0.5), 
-        inset 0 0 30px rgba(255,69,0,0.3);
+        0 0 20px rgba(0, 128, 0, 0.5), 
+        inset 0 0 30px rgba(0, 100, 0, 0.3);
     letter-spacing: 3px;
     margin-bottom: 40px;
     transition: all 0.3s ease;
@@ -1159,7 +1172,7 @@
     background: linear-gradient(
         to right, 
         transparent, 
-        rgba(255, 69, 0, 0.3), 
+        rgba(0, 200, 0, 0.3), 
         transparent
     );
     transform: skew(-45deg);
@@ -1183,8 +1196,8 @@
     background-color: rgba(26, 26, 26, 0.8);
     padding: 40px;
     border-radius: 15px;
-    border: 2px solid rgba(255, 69, 0, 0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid var(--earth-green);
+    box-shadow: 0 10px 30px rgba(0,128,0,0.2);
     transition: all 0.3s ease;
 }
 
@@ -1218,7 +1231,7 @@
     background-color: rgba(26, 26, 26, 0.7);
     border-radius: 10px;
     padding: 20px;
-    border-left: 4px solid #ff4500;
+    border-left: 4px solid var(--earth-green);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1250,7 +1263,7 @@
 }
 
 #research .research-item h3 {
-    color: #ff4500;
+    color: var(--earth-green);
     margin-bottom: 10px;
     font-size: 1.2rem;
     display: flex;
@@ -1258,7 +1271,7 @@
 }
 
 #research .research-item h3::before {
-    content: '🚀';
+    content: '🌍';
     margin-right: 10px;
 }
 
@@ -1283,10 +1296,10 @@
     overflow: hidden;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    border: 2px solid #ff4500;
+    border: 2px solid var(--earth-green);
     box-shadow: 
-        0 0 20px rgba(255,69,0,0.5), 
-        inset 0 0 30px rgba(255,69,0,0.3);
+        0 0 20px rgba(0, 128, 0, 0.5), 
+        inset 0 0 30px rgba(0, 100, 0, 0.3);
     letter-spacing: 3px;
     margin-bottom: 40px;
     transition: all 0.3s ease;
@@ -1340,6 +1353,7 @@
     perspective: 1000px;
 }
 
+
 .facts-navigation {
     display: flex;
     flex-direction: column;
@@ -1349,15 +1363,9 @@
 }
 
 #fact-search {
-    width: 350px;
-    padding: 12px 20px;
-    background-color: rgba(26, 26, 26, 0.8);
-    border: 2px solid #ff4500;
-    border-radius: 50px;
-    color: #fff;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
+    border: 2px solid var(--earth-green);
 }
+
 
 #fact-search:focus {
     outline: none;
@@ -1374,16 +1382,10 @@
 }
 
 .category-btn {
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 2px solid #ff4500;
-    border-radius: 50px;
-    color: #ff4500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    border: 2px solid var(--earth-green);
+    color: var(--earth-green);
 }
+
 
 .category-btn::before {
     content: '';
@@ -1406,9 +1408,8 @@
 }
 
 .category-btn.active {
-    background-color: #ff4500;
+    background-color: var(--earth-green);
     color: #000;
-    transform: scale(1.1);
 }
 
 .facts-grid {
@@ -1422,10 +1423,10 @@
     background-color: rgba(26, 26, 26, 0.8);
     border-radius: 15px;
     padding: 25px;
-    border: 2px solid rgba(255, 69, 0, 0.3);
+    border: 2px solid var(--earth-green);
     transition: all 0.5s ease;
     transform: translateZ(-50px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,128,0,0.2);
     position: relative;
     overflow: hidden;
 }
@@ -1473,10 +1474,7 @@
 }
 
 .fact-icon {
-    font-size: 3.5em;
-    margin: 15px 0;
-    color: #ff4500;
-    transition: all 0.3s ease;
+    color: var(--earth-green);
 }
 
 .fact-card:hover .fact-icon {
@@ -1554,8 +1552,10 @@
     transition: width 0.3s ease;
 }
 
-.fact-card:hover h3 {
-    transform: scale(1.05);
+.fact-card h3 {
+    color: var(--earth-green);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
 .fact-card:hover h3::before {
@@ -1612,10 +1612,7 @@
 
 /* Эффект для цифр фактов */
 .fact-number {
-    font-family: 'Orbitron', sans-serif;
-    color: #ff4500;
-    opacity: 0.3;
-    transition: all 0.3s ease;
+    color: var(--earth-green);
 }
 
 .fact-card:hover .fact-number {
@@ -1724,13 +1721,8 @@
 }
 
 #history .history-section .description-content h4 {
-    color: #ff4500;
-    position: relative;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: var(--earth-green);
+    border-bottom: 2px solid var(--earth-green);
 }
 
 #history .history-section .description-content h4::after {
@@ -1772,12 +1764,9 @@
 }
 
 #history .history-section .description-content ul li {
+    background-color: rgba(26, 26, 26, 0.5);
     color: #ffffff;
-    padding: 10px 0;
-    position: relative;
-    padding-left: 30px;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+    border-bottom: 1px solid var(--earth-green);
 }
 
 #history .history-section .description-content ul li:last-child {
@@ -1877,10 +1866,10 @@
     padding: 40px;
     margin-bottom: 30px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 69, 0, 0.2);
+    border: 2px solid var(--earth-green);
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.3),
-        0 5px 15px rgba(255, 69, 0, 0.1);
+        0 5px 15px rgba(0, 128, 0, 0.1);
     transition: all 0.5s ease;
     overflow: hidden;
     position: relative;
@@ -1916,7 +1905,7 @@
 }
 
 #history .history-section h3 {
-    color: #ff4500;
+    color: var(--earth-green);
     text-align: center;
     position: relative;
     margin-bottom: 30px;
@@ -1936,7 +1925,7 @@
     background: linear-gradient(
         to right, 
         transparent, 
-        #ff4500, 
+        var(--earth-green), 
         transparent
     );
 }
@@ -1966,13 +1955,13 @@
         0 7px 20px rgba(255, 69, 0, 0.2);
 }
 
-#history .history-section .mission-description {
+.history-section .mission-description {
     background-color: rgba(39, 39, 39, 0.7);
     border-radius: 20px;
     padding: 30px;
     width: 100%;
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 69, 0, 0.1);
+    border: 1px solid var(--earth-green);
 }
 
 #history .history-section .mission-description p {
@@ -2108,11 +2097,13 @@
 }
 
 #footer {
-    clear: both; /* Очистка обтекания */
-    width: 100%;
-    position: relative;
-    z-index: 10;
+    background-color: var(--primary-bg);
+    color: var(--secondary-text);
+    text-align: center;
+    padding: 30px 0;
+    border-top: 2px solid var(--earth-green);
 }
+
 #history .history-section .description-content p {
     color: #ffffff; /* Чистый белый */
     opacity: 1; /* Убрал затемнение */
@@ -2123,8 +2114,90 @@
     padding-left: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Добавил легкую тень для контраста */
 }
+/* Типографика */
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--earth-green);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
 
-    </style>
+p {
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--earth-green);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: var(--earth-dark-green);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 128, 0, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Скроллбар */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--earth-light-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--earth-green);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--earth-dark-green);
+}
+
+
+</style>
 </head>
 <body>
     <nav id="navigation" class="earth-navigation">
@@ -2193,26 +2266,90 @@
                             <div class="mission-description">
                                 <div class="description-content">
                                     <h4>Земля в мировоззрении древних цивилизаций</h4>
-                                    <p>Древние цивилизации формировали уникальные представления о строении и природе нашей планеты.</p>
+                                    <p>Древние цивилизации формировали уникальные представления о строении и природе нашей планеты, основываясь на мифологии, наблюдениях и философских размышлениях.</p>
                                     
                                     <h4>Мифологические воззрения</h4>
                                     <ul>
-                                        <li>✦ Греция: Земля как живое существо</li>
-                                        <li>✦ Китай: Концепция плоской Земли</li>
-                                        <li>✦ Майя: Космологические представления</li>
-                                        <li>✦ Египет: Земля как divine творение</li>
+                                        <li>✦ Греция: Гея как живое существо, олицетворение Земли</li>
+                                        <li>✦ Китай: Концепция плоской Земли с четырьмя сторонами света</li>
+                                        <li>✦ Майя: Космологические представления о многослойной вселенной</li>
+                                        <li>✦ Египет: Земля как divine творение бога Геба</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Остальные секции истории (научные открытия, геологические исследования) -->
+    
+                    <div class="history-section scientific-discoveries">
+                        <h3>Научные Открытия</h3>
+                        <div class="mission-details">
+                            <div class="mission-image-container">
+                                <img src="img/scientific_revolution.jpg" alt="Научная революция" class="mission-image">
+                                <div class="image-caption">
+                                    <p>Эпоха научных революций и географических открытий</p>
+                                </div>
+                            </div>
+                            <div class="mission-description">
+                                <div class="description-content">
+                                    <h4>Эволюция научного понимания</h4>
+                                    <p>Период с XV по XVIII века стал переломным в понимании строения и природы Земли.</p>
+                                    
+                                    <h4>Ключевые Исследователи</h4>
+                                    <ul>
+                                        <li>✦ Коперник: Гелиоцентрическая модель мира</li>
+                                        <li>✦ Галилей: Телескопические наблюдения</li>
+                                        <li>✦ Колумб: Экспедиции и географические открытия</li>
+                                        <li>✦ Ньютон: Законы гравитации и движения </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="history-section geological-research">
+                        <h3>Геологические Исследования</h3>
+                        <div class="mission-details">
+                            <div class="mission-image-container">
+                                <img src="img/geological_layers.jpg" alt="Геологические слои" class="mission-image">
+                                <div class="image-caption">
+                                    <p>Изучение геологических слоев и тектонических процессов</p>
+                                </div>
+                            </div>
+                            <div class="mission-description">
+                                <div class="description-content">
+                                    <h4>Понимание Геологических Процессов</h4>
+                                    <p>XIX и XX века стали временем глубокого изучения внутренней структуры и динамики нашей планеты.</p>
+                                    
+                                    <h4>Революционные Теории</h4>
+                                    <ul>
+                                        <li>✦ Теория тектоники плит</li>
+                                        <li>✦ Исследования вулканической активности</li>
+                                        <li>✦ Изучение геологических эпох</li>
+                                        <li>✦ Палеонтологические открытия</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="historical-context">
+                        <h4>Контекст Исторических Изменений</h4>
+                        <ul>
+                            <li>📌 Первые карты мира создавались более 2500 лет назад</li>
+                            <li>📌 Первое кругосветное путешествие Магеллана (1519-1522)</li>
+                            <li>📌 Первые спутниковые снимки Земли в 1960-х годах</li>
+                            <li>📌 Современные технологии картографирования и исследования</li>
+                        </ul>
+                    </div>
+    
+                    <div class="additional-info">
+                        <h4>Значение Познания</h4>
+                        <p>Каждое научное открытие расширяло наше понимание Земли как сложной, динамичной системы, полной удивительных взаимосвязей и процессов.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="research" class="section">
         <div class="container">
             <h2>Современные Исследования Земли</h2>
@@ -2558,7 +2695,7 @@
 </body>
 
     <script>
-        // Функция для проверки видимости секций при прокрутке
+        // JavaScript код для анимаций и интерактивности
         function checkVisibility() {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
@@ -2568,110 +2705,6 @@
                 }
             });
         }
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const historySections = document.querySelectorAll('.history-section');
-            
-            console.log('Найдено секций:', historySections.length);
-            
-            historySections.forEach((section, index) => {
-                console.log(`Секция ${index + 1}:`, section);
-                section.classList.add('visible');
-            });
-    
-            // Пагинация и фильтрация фактов
-            const factsGrid = document.querySelector('.facts-grid');
-            const factCards = document.querySelectorAll('.fact-card');
-            const categoryButtons = document.querySelectorAll('.category-btn');
-            const searchInput = document.getElementById('fact-search');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const pageInfo = document.querySelector('.page-info');
-    
-            const factsPerPage = 6;
-            let currentPage = 1;
-            let filteredCards = Array.from(factCards);
-    
-            // Функция отображения страницы
-            function showPage(page) {
-                const startIndex = (page - 1) * factsPerPage;
-                const endIndex = startIndex + factsPerPage;
-    
-                filteredCards.forEach((card, index) => {
-                    card.style.display = 'none';
-                    if (index >= startIndex && index < endIndex) {
-                        card.style.display = 'block';
-                    }
-                });
-    
-                updatePaginationInfo();
-            }
-    
-            // Обновление информации о пагинации
-            function updatePaginationInfo() {
-                const totalPages = Math.ceil(filteredCards.length / factsPerPage);
-                pageInfo.textContent = `Страница ${currentPage} из ${totalPages}`;
-                
-                prevBtn.disabled = currentPage === 1;
-                nextBtn.disabled = currentPage === totalPages;
-            }
-    
-            // Обработчики кнопок пагинации
-            prevBtn.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    showPage(currentPage);
-                }
-            });
-    
-            nextBtn.addEventListener('click', () => {
-                const totalPages = Math.ceil(filteredCards.length / factsPerPage);
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    showPage(currentPage);
-                }
-            });
-    
-            // Фильтрация по категориям
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Убираем активный класс со всех кнопок
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-    
-                    const category = button.dataset.category;
-    
-                    // Фильтруем карточки
-                    if (category === 'all') {
-                        filteredCards = Array.from(factCards);
-                    } else {
-                        filteredCards = Array.from(factCards).filter(card => 
-                            card.dataset.category === category
-                        );
-                    }
-    
-                    currentPage = 1;
-                    showPage(currentPage);
-                });
-            });
-    
-            // Поиск фактов
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-    
-                filteredCards = Array.from(factCards).filter(card => {
-                    const title = card.querySelector('h3').textContent.toLowerCase();
-                    const description = card.querySelector('p').textContent.toLowerCase();
-                    return title.includes(searchTerm) || description.includes(searchTerm);
-                });
-    
-                currentPage = 1;
-                showPage(currentPage);
-            });
-    
-            // Инициализация первой страницы
-            showPage(currentPage);
-        });
     
         // Обработчики видимости секций
         window.addEventListener('scroll', checkVisibility);

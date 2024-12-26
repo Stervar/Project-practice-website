@@ -6,21 +6,27 @@
     <title>Интерактивная Солнечная система</title>
     <link rel="stylesheet" href="css/main.css">
     <style>
-        /* Добавим стили для навигации */
+        /* Стили для навигации */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
         nav {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
         }
 
         nav ul li {
@@ -28,15 +34,33 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #FFFFFF;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: #03A9F4;
+            transition: width 0.3s, left 0.3s;
         }
 
         nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
         }
     </style>
 </head>

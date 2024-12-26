@@ -1164,8 +1164,37 @@
                     height: 60px;
                 }
             }
+        
+
+
+
+            #research.section {
+                background-color: rgba(26, 26, 26, 0.7);
+                border-radius: 30px; /* Полное закругление секции */
+                padding: 50px 0;
+                margin: 50px 0;
+                backdrop-filter: blur(10px);
+                border: 2px solid rgba(0, 255, 0, 0.2);
+                box-shadow: 
+                    0 15px 35px rgba(0, 0, 0, 0.3),
+                    0 5px 15px rgba(0, 255, 34, 0.1);
+                position: relative;
+                overflow: hidden;
+                transition: all 0.5s ease;
+            }
+            
+            #research .container {
+                border-radius: 30px; /* Закругление контейнера */
+                overflow: hidden; /* Скрытие выступающих элементов */
+            }
+            
+            @keyframes wide-line-flow {
+                0% { left: -100%; }
+                100% { left: 200%; }
+            }
+            
             #research h2 {
-                font-size: 3rem;
+                font-size: 3.5rem;
                 text-transform: uppercase;
                 text-align: center;
                 color: #fff;
@@ -1173,15 +1202,21 @@
                 overflow: hidden;
                 padding: 20px;
                 background: rgba(0,0,0,0.8);
-                border: 2px solid #09ff00a2;
+                border: 2px solid #33ff00a9;
+                border-radius: 20px; /* Скругление для заголовка */
                 box-shadow: 
-                    0 0 20px rgba(30, 255, 0, 0.5), 
-                    inset 0 0 30px rgba(43, 255, 0, 0.3);
+                    0 0 20px rgba(0, 255, 13, 0.5), 
+                    inset 0 0 30px rgba(60, 255, 0, 0.3);
                 letter-spacing: 3px;
                 margin-bottom: 40px;
                 transition: all 0.3s ease;
             }
-
+            
+            #research h2:hover {
+                transform: scale(1.02); /* Увеличение при наведении */
+                text-shadow: 0 0 15px rgba(30, 255, 0, 0.5); /* Эффект свечения при наведении */
+            }
+            
             #research h2::before {
                 content: '';
                 position: absolute;
@@ -1198,17 +1233,8 @@
                 transform: skew(-45deg);
                 animation: wide-line-flow 4s linear infinite;
             }
-
-            @keyframes wide-line-flow {
-                0% { left: -100%; }
-                100% { left: 200%; }
-            }
-
-            #research h2:hover {
-                transform: scale(1.02);
-                text-shadow: 0 0 15px rgba(30, 255, 0, 0.5);
-            }
-
+            
+            
             #research .section-grid {
                 display: grid;
                 grid-template-columns: 1fr;
@@ -1220,12 +1246,12 @@
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
                 transition: all 0.3s ease;
             }
-
+            
             #research .section-grid:hover {
                 box-shadow: 0 15px 40px rgba(51, 255, 0, 0.2);
                 transform: translateY(-10px);
             }
-
+            
             #research .section-image {
                 max-width: 100%;
                 max-height: 450px;
@@ -1234,19 +1260,19 @@
                 box-shadow: 0 15px 30px rgba(0, 255, 34, 0.3);
                 transition: all 0.5s ease;
             }
-
+            
             #research .section-image:hover {
                 transform: scale(1.05);
                 box-shadow: 0 20px 40px rgba(0, 255, 0, 0.4);
             }
-
+            
             #research .research-details {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
                 margin-top: 30px;
             }
-
+            
             #research .research-item {
                 background-color: rgba(26, 26, 26, 0.7);
                 border-radius: 10px;
@@ -1256,7 +1282,7 @@
                 position: relative;
                 overflow: hidden;
             }
-
+            
             #research .research-item::before {
                 content: '';
                 position: absolute;
@@ -1272,16 +1298,16 @@
                 );
                 transition: all 0.5s ease;
             }
-
+            
             #research .research-item:hover::before {
                 left: 100%;
             }
-
+            
             #research .research-item:hover {
                 transform: translateY(-10px);
                 box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
             }
-
+            
             #research .research-item h3 {
                 color: #00ff159a;
                 margin-bottom: 10px;
@@ -1289,29 +1315,29 @@
                 display: flex;
                 align-items: center;
             }
-
+            
             #research .research-item h3::before {
                 content: '🚀';
                 margin-right: 10px;
             }
-
+            
             #research .research-item p {
                 color: #ffffff;
                 line-height: 1.6;
                 font-size: 0.9rem;
             }
-
+            
             @media (max-width: 768px) {
                 #research .research-details {
                     grid-template-columns: 1fr;
                 }
+            
+                #research h2 {
+                    font-size: 2.5rem;
+                    padding: 15px;
+                    letter-spacing: 2px;
+                }
             }
-
-
-
-
-
-
 
 
 
@@ -2460,7 +2486,7 @@
                                     <h3>Древние наблюдения: Земля в мировоззрении древних цивилизаций</h3>
                                     <div class="mission-details">
                                         <div class="mission-image-container">
-                                            <img src="ancient-earth-observations.jpg" alt="Древние наблюдения Земли" class="mission-image">
+                                            <img src="img/i (18).webp" alt="Древние наблюдения Земли" class="mission-image">
                                             <div class="image-caption">
                                                 <p>Древние цивилизации и их понимание Земли</p>
                                             </div>
@@ -2506,7 +2532,7 @@
                     <h3>Первые научные открытия: Земля глазами ученых</h3>
                     <div class="mission-details">
                         <div class="mission-image-container">
-                            <img src="galileo-earth-observation.jpg" alt="Первые научные наблюдения Земли" class="mission-image">
+                            <img src="img/i (19).webp" alt="Первые научные наблюдения Земли" class="mission-image">
                             <div class="image-caption">
                                 <p>Первые научные инструменты для изучения Земли</p>
                             </div>
@@ -2556,7 +2582,7 @@
                     <h3>Гипотеза глобального потепления: Научный вызов XX века</h3>
                     <div class="mission-details">
                         <div class="mission-image-container">
-                            <img src="img/ef6d7fcbbb9ee8ec669ea6dd8df8181a.png" alt="Карта каналов Скиапарелли" class="mission-image">
+                            <img src="img/i (20).webp" alt="Карта каналов Скиапарелли" class="mission-image">
                             <div class="image-caption">
                                 <p>Карта глобальных климатических изменений</p>
                             </div>
@@ -2605,7 +2631,7 @@
                         <div class="mission-grid">
                             <div class="mission-item mission-item-mariner4">
                                 <div class="mission-image-container">
-                                    <img src="img/1964 - Mariner 4.webp" alt="Mariner 4" class="mission-image">
+                                    <img src="img/i (21).webp" alt="Mariner 4" class="mission-image">
                                 </div>
                                 <h4>1958 - Explorer 1</h4>
                                 <div class="image-caption">
@@ -2615,7 +2641,7 @@
                     
                             <div class="mission-item mission-item-mariner9">
                                 <div class="mission-image-container">
-                                    <img src="img/2017Space_Interplanetary_Space_Station_Mariner_in_orbit_of_the_planet_Mars_112285_.jpg" alt="Mariner 9" class="mission-image">
+                                    <img src="img/TIROS.jpg" alt="Mariner 9" class="mission-image">
                                 </div>
                                 <h4>1960 - TIROS-1</h4>
                                 <div class="image-caption">
@@ -2625,7 +2651,7 @@
                     
                             <div class="mission-item mission-item-viking">
                                 <div class="mission-image-container">
-                                    <img src="img/1976 - Viking 1 и 2.webp" alt="Viking Landers" class="mission-image">
+                                    <img src="img/756650547091386.jpg" alt="Viking Landers" class="mission-image">
                                 </div>
                                 <h4>1972 - Landsat-1</h4>
                                 <div class="image-caption">
@@ -2641,7 +2667,7 @@
                     <div class="history-section modern-research">
                         <h3>Современные Глобальные Исследования</h3>
                         <div class="mission-details">
-                            <img src="earth-global-research.jpg" alt="Современные исследования Земли" class="mission-image">
+                            <img src="img/BIQFtLoOSaVnb0ngBRSBVYn7N-sieEQRZYMDsIaY912Wfg-sGTQjEvZb6vemK4eA3PmcTDV0.jpg" alt="Современные исследования Земли" class="mission-image">
                             <div class="mission-description">
                                 <p>Сегодня изучением Земли занимаются ведущие научные организации:</p>
                                 <ul>
@@ -2657,7 +2683,7 @@
                                 <div class="history-section future-research">
                                     <h3>Будущее Земных Исследований</h3>
                                     <div class="mission-details">
-                                        <img src="earth-future-research.jpg" alt="Будущее исследований Земли" class="mission-image">
+                                        <img src="img/scale_1200.png" alt="Будущее исследований Земли" class="mission-image">
                                         <div class="mission-description">
                                             <p>Стратегические направления научных исследований:</p>
                                             <ul>
@@ -2679,7 +2705,7 @@
                         <div class="container">
                             <h2>Современные Исследования Земли</h2>
                             <div class="section-grid">
-                                <img src="earth-research.jpg" alt="Глобальные исследования Земли" class="section-image">
+                                <img src="img/s1_d_850_d_850_d_850_d_850.jpg" alt="Глобальные исследования Земли" class="section-image">
                                 <div>
                                     <div class="research-details">
                                         <div class="research-item">

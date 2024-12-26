@@ -5,23 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интерактивная Солнечная система</title>
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Добавим стили для навигации */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#mercury">Меркурий</a></li>
+                <li><a href="#venus">Венера</a></li>
+                <li><a href="#earth">Земля</a></li>
+                <li><a href="#mars">Марс</a></li>
+                <li><a href="#jupiter">Юпитер</a></li>
+                <li><a href="#saturn">Сатурн</a></li>
+                <li><a href="#uranus">Уран</a></li>
+                <li><a href="#neptune">Нептун</a></li>
+            </ul>
+        </nav>
+    </header>
+    
     <div id="space-background"></div>
     <div id="solar-system-container"></div>
     <div id="cosmic-effects-container"></div>
 
     <script src="js/solar-system.js"></script>
-
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#planets">Планеты</a></li>
-                <li><a href="#about">О проекте</a></li>
-            </ul>
-        </nav>
-    </header>
     
     <main>
         <div id="space-background"></div>

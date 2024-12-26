@@ -6,39 +6,28 @@
     <title>Марс - Красная Планета</title>
     <style>
         :root {
-    /* Основные цвета Земли */
-    --primary-bg: #2196F3;       /* Глубокий синий - цвет океана */
-    --secondary-bg: #4CAF50;     /* Зеленый - цвет растительности */
-    --accent-color: #03A9F4;     /* Яркий голубой - цвет неба */
-    --text-color: #FFFFFF;       /* Белый для контраста */
-    --secondary-text: #E0F7FA;   /* Светло-голубой */
+            --primary-bg: #1a1a1a; /* Темный фон */
+            --secondary-bg: #2e2e2e; /* Более светлый фон */
+            --accent-color: #007bff; /* Синий цвет для акцентов */
+            --text-color: #ffffff; /* Белый текст */
+            --secondary-text: #00ff00; /* Зеленый текст для акцентов */
+        }
+        
 
-    /* Дополнительные оттенки */
-    --earth-blue: #1565C0;       /* Темно-синий */
-    --earth-green: #2E7D32;      /* Насыщенный зеленый */
-    --earth-light-blue: #81D4FA; /* Легкий голубой */
-    --earth-dark-green: #1B5E20; /* Темно-зеленый */
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--primary-bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    background: linear-gradient(
-        135deg, 
-        var(--primary-bg), 
-        var(--earth-light-blue)
-    );
-}
         #back-button {
             position: fixed;
             top: 20px;
@@ -52,12 +41,12 @@ body {
             z-index: 1100;
             transition: all 0.3s ease;
             font-weight: bold;
-            box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+            box-shadow: 0 0 15px rgba(0, 255, 55, 0.5);
         }
 
         #back-button:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(255, 69, 0, 0.7);
+            box-shadow: 0 0 25px rgba(0, 255, 55, 0.7);
         }
 
         .container {
@@ -109,21 +98,24 @@ body {
             gap: 20px;
 }
 
-.explore-button {
-    background-color: var(--earth-green);
-    color: var(--text-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
+        .explore-button {
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
 }
 
-.explore-button:hover {
-    background-color: var(--earth-dark-green);
-    transform: scale(1.05);
+        .explore-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(21, 255, 0, 0.5);
 }
+
         /* Медиа-запрос для адаптивности */
         @media (max-width: 992px) {
             .nav-left {
@@ -135,7 +127,14 @@ body {
                 margin-top: 10px;
     }
 }
-
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-bg), #003014);
+            position: relative;
+            overflow: hidden;
+        }
 
         #hero::before {
             content: '';
@@ -157,30 +156,34 @@ body {
         }
 
         .hero-content h1 {
-            color: var(--earth-dark-green);
+            font-size: 4rem;
+            color: var(--secondary-text); /* Зеленый цвет */
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 255, 76, 0.7);
         }
-/* Глобальные эффекты */
-.section {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease;
-    background: rgba(26, 26, 26, 0.7);
-    border-radius: 15px;
-    padding: 50px 0;
-    margin: 20px 0;
-    box-shadow: 0 10px 30px rgba(0, 128, 0, 0.2);
-}
+        
 
-.section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .section {
+            padding: 100px 0;
+            background-color: var(--secondary-bg);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+            border-top: 3px solid var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         .section h2 {
-            color: var(--earth -green); /* Насыщенный зеленый заголовок */
+            color: var(--accent-color);
             text-align: center;
             margin-bottom: 30px;
-            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Легкая тень для контраста */
+            text-shadow: 0 0 15px rgba(0, 255, 34, 0.5);
         }
 
         .section-grid {
@@ -189,28 +192,31 @@ body {
             gap: 30px;
             align-items: center;
         }
-        
 
         .section-image {
             width: 100%;
             border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 128, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 255, 85, 0.3);
             transition: transform 0.5s ease;
         }
-        
+
         .section-image:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.6);
+            box-shadow: 0 15px 30px rgba(0, 255, 98, 0.6);
+        }
+
+        .fact-card {
+            background-color: var(--primary-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-color);
+            transition: all 0.5s ease;
         }
 
         .fact-card:hover {
             transform: translateX(10px);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Увеличенная тень при наведении */
-        }
-
-        .fact-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Увеличенная тень при наведении */
+            box-shadow: 0 0 20px rgba(0, 255, 42, 0.4);
         }
 
         .fact-card h3 {
@@ -276,25 +282,25 @@ body {
             max-height: 250px;
             object-fit: cover;
             border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 255, 21, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
         .mission-image:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 25px rgba(255, 69, 0, 0.3);
+            box-shadow: 0 15px 25px rgba(0, 255, 21, 0.3);
 }
 
         .mission-description {
             flex: 1;
 }
 
-.history-section h3 {
-    color: var(--accent-color); /* Яркий голубой для заголовков */
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
+        .history-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
 }
 
         .mission-description p {
@@ -377,11 +383,26 @@ body {
             transform: translateY(0);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--primary-bg), var(--earth-light-blue)); 
+    background: linear-gradient(135deg, #000000, #001a3e); /* Темный космос */
     position: relative;
     overflow: hidden;
 }
@@ -395,9 +416,8 @@ body {
     height: 100%;
     background: radial-gradient(
         ellipse at center, 
-        rgba(0, 128, 0, 0.1) 0%, 
-        rgba(0, 100, 0, 0.3) 50%, 
-        var(--primary-bg) 100%
+        rgba(0, 102, 204, 0.5) 0%,   /* Светло-синий для атмосферы */
+        rgba(0, 0, 0, 0) 70%          /* Прозрачный для космоса */
     );
     z-index: 1;
 }
@@ -408,40 +428,24 @@ body {
     bottom: -40%;
     left: 50%;
     transform: translateX(-50%);
-    width: 1200px;
-    height: 1200px;
-    background: radial-gradient(
-        ellipse at center, 
-        rgba(0, 128, 255, 0.2) 0%,   /* Синий цвет океанов */
-        rgba(0, 200, 100, 0.3) 20%,  /* Зеленый цвет суши */
-        rgba(255, 255, 255, 0.2) 40%, /* Белый цвет облаков */
-        rgba(0, 100, 200, 0.1) 60%,   /* Темно-синий фон */
-        transparent 80%
-    );
-    border-radius: 50%;
+    width: 1200px; /* Размер кружка */
+    height: 1200px; /* Размер кружка */
+    background: url('earth-image.jpg') no-repeat center center; /* Замените на изображение Земли */
+    background-size: cover; /* Обеспечивает полное покрытие */
+    border-radius: 50%; /* Кружок */
     box-shadow: 
-        0 0 300px 150px rgba(0, 100, 255, 0.1),
-        0 0 200px 100px rgba(0, 200, 100, 0.1),
-        inset 0 0 250px 100px rgba(255, 255, 255, 0.1);
+        0 0 50px rgba(0, 204, 255, 0.5), /* Тень для выделения */
+        0 0 100px rgba(0, 102, 204, 0.3);
     
-    background-image: 
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 5%, transparent 5%),
-        radial-gradient(circle at 70% 70%, rgba(255,255,255,0.3) 5%, transparent 5%),
-        linear-gradient(45deg, 
-            rgba(0, 128, 255, 0.2) 0%, 
-            rgba(0, 200, 100, 0.3) 50%, 
-            rgba(255, 255, 255, 0.2) 100%
-        );
+        background-image: 
+        radial-gradient(circle at 70% 70%, rgb(116, 115, 117) 5%, transparent 5%);
     
     animation: 
-        earthReveal 2s ease-out,
-        earthRotate 50s linear infinite,
-        earthCloudMovement 30s linear infinite;
+        marsReveal 2s ease-out,
+        marsRotate 50s linear infinite;
     z-index: 1;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-}
-
-@keyframes earthReveal {
+    }
+@keyframes marsReveal {
     0% {
         opacity: 0;
         transform: translateX(-50%) scale(0.7);
@@ -454,14 +458,26 @@ body {
     }
 }
 
-@keyframes earthRotate {
+@keyframes marsRotate {
     0% {
         transform: translateX(-50%) rotate(0deg);
+        box-shadow: 0 0 30px rgba(34, 139, 34, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 128, 0, 0.5);
     }
     100% {
         transform: translateX(-50%) rotate(360deg);
+        box-shadow: 0 0 30px rgba(50, 205, 50, 0.3);
     }
 }
+
+
+
+
+
+
+
 
 .hero-content {
     position: relative;
@@ -483,12 +499,33 @@ body {
     }
 }
 
-.hero-content h1 {
-    color: var(--earth-dark-green);
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 
+                0 0 30px rgba(30, 255, 0, 0.7),
+                2px 2px 15px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
 }
-.hero-content p {
-    color: var(--earth-green);
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
+
+
+
+
+
+
+
+
+
 
         /* Адаптивность */
         @media (max-width: 768px) {
@@ -599,7 +636,7 @@ body {
         .historical-context ul {
             list-style-type: none;
             padding: 0;
-            background-color: rgba(88, 41, 0, 0.05);
+            background-color: rgba(0, 88, 4, 0.05);
             border-radius: 10px;
             padding: 15px;
             display: grid;
@@ -621,7 +658,7 @@ body {
 
         .additional-info {
             margin-top: 20px;
-            background-color: rgba(88, 41, 0, 0.05);
+            background-color: rgba(0, 88, 7, 0.05);
             padding: 20px;
             border-radius: 10px;
             border-left: 4px solid var(--accent-color);
@@ -645,28 +682,18 @@ body {
             }
 }
 
-/* Анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+        /* Дополнительные анимации и эффекты */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
         .mars-channels-section {
             animation: fadeIn 0.7s ease-out;
 }
@@ -704,14 +731,14 @@ body {
     background-color: var(--primary-bg); /* Темный фон для элемента */
     border-radius: 10px; /* Закругленные углы */
     overflow: hidden; /* Скрытие переполнения */
-    box-shadow: 0 2px 10px rgba(255, 69, 0, 0.2); /* Тень для элемента */
+    box-shadow: 0 2px 10px rgba(9, 255, 0, 0.2); /* Тень для элемента */
     transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход при наведении */
     text-align: center; /* Центрирование текста внутри элемента */
 }
 
 .mission-item:hover {
     transform: translateY(-5px); /* Подъем элемента при наведении */
-    box-shadow: 0 4px 20px rgba(255, 69, 0, 0.4); /* Увеличение тени при наведении */
+    box-shadow: 0 4px 20px rgba(0, 255, 42, 0.4); /* Увеличение тени при наведении */
 }
 
 .mission-image-container {
@@ -743,7 +770,7 @@ body {
     margin-top: 10px; /* Отступ сверху */
     font-style: italic;
     padding: 10px;
-    background-color: rgba(255, 69, 0, 0.1);
+    background-color: rgba(9, 255, 0, 0.1);
     border-top: 1px solid var(--accent-color);
     width: 100%; /* Полная ширина */
 }
@@ -783,53 +810,53 @@ body {
 
 /* Стили для Mariner 4 */
 .mission-item-mariner4 {
-    border-color: #ff4500;
+    border-color: #15ff0083;
 }
 
 .mission-item-mariner4 h4 {
-    background-color: #ff4500;
+    background-color: #047e0a81;
     color: black;
     padding: 10px;
     text-align: center;
 }
 
 .mission-item-mariner4 .image-caption {
-    background-color: rgba(255, 69, 0, 0.1);
-    color: #ff4500;
+    background-color: rgba(43, 255, 0, 0.1);
+    color: #00ff2a9d;
 }
 
 /* Стили для Mariner 9 */
 .mission-item-mariner9 {
-    border-color: #ff6347;
+    border-color: #4dff47c9;
 }
 
 .mission-item-mariner9 h4 {
-    background-color: #ff6347;
+    background-color: #47ff50b6;
     color: black;
     padding: 10px;
     text-align: center;
 }
 
 .mission-item-mariner9 .image-caption {
-    background-color: rgba(255, 99, 71, 0.1);
-    color: #ff6347;
+    background-color: rgba(129, 255, 71, 0.1);
+    color: #81ff47cc;
 }
 
 /* Стили для Viking */
 .mission-item-viking {
-    border-color: #ff7f50;
+    border-color: #79ff50cb;
 }
 
 .mission-item-viking h4 {
-    background-color: #ff7f50;
+    background-color: #96ff50de;
     color: black;
     padding: 10px;
     text-align: center;
 }
 
 .mission-item-viking .image-caption {
-    background-color: rgba(255, 127, 80, 0.1);
-    color: #ff7f50;
+    background-color: rgba(121, 255, 80, 0.1);
+    color: #73ff50;
 }
 
 /* Общие стили для элементов */
@@ -873,7 +900,6 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
 #history h2 {
     font-size: 3.5rem;
     text-transform: uppercase;
@@ -883,14 +909,12 @@ body {
     overflow: hidden;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    border: 2px solid var(--earth-green);
+    border: 2px solid #00ff37dc;
     box-shadow: 
-        0 0 20px rgba(0, 128, 0, 0.5), 
-        inset 0 0 30px rgba(0, 100, 0, 0.3);
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-    transition: all 0.3s ease;
+        0 0 20px rgba(9, 255, 0, 0.5),
+        inset 0 0 30px rgba(0, 255, 0, 0.3);
 }
+
 #history h2::before {
     content: '';
     position: absolute;
@@ -901,7 +925,7 @@ body {
     background: linear-gradient(
         to right, 
         transparent, 
-        rgba(255, 69, 0, 0.3), 
+        rgba(0, 255, 34, 0.3), 
         transparent
     );
     transform: skew(-45deg);
@@ -924,10 +948,10 @@ body {
 }
 
 :root {
-    --primary-color: #ff4500;
+    --primary-color: #33ff00ad;
     --secondary-color: #1a1a1a;
     --text-color: #ffffff;
-    --accent-color: #ff4500;
+    --accent-color: #09ff00bd;
 }
 
 .mars-navigation {
@@ -963,9 +987,10 @@ body {
 .mars-title-main {
     font-size: 2.5rem;
     font-weight: 900;
-    color: var(--accent-color);
+    color: #228B22;  /* Лесной зеленый */
     letter-spacing: 3px;
     text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 100, 0, 0.5);
 }
 
 .mars-title-sub {
@@ -982,21 +1007,24 @@ body {
 
 .explore-button,
 #back-button {
-    background-color: var(--earth-green); /* Насыщенный зеленый */
-    color: var(--text-color); /* Белый текст */
-    border: none;
-    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    padding: 10px 15px;
     border-radius: 5px;
-    cursor: pointer;
-    z-index: 1100;
+    text-decoration: none;
     transition: all 0.3s ease;
     font-weight: bold;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Легкая тень */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
+
 .explore-button:hover,
 #back-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); /* Увеличенная тень при наведении */
+    background-color: var(--accent-color);
+    color: black;
 }
 
 .button-icon {
@@ -1029,12 +1057,12 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--earth-green);
+    background-color: var(--accent-color);
     transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--earth-green);
+    color: var(--accent-color);
 }
 
 .nav-link:hover::after {
@@ -1056,7 +1084,6 @@ body {
         align-items: center;
     }
 }
-
 .logo-corner {
     position: fixed;
     top: 20px;
@@ -1064,7 +1091,7 @@ body {
     z-index: 1100;
 }
 
-.earth-logo {
+.mars-logo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1072,28 +1099,28 @@ body {
     backdrop-filter: blur(10px);
     padding: 15px;
     border-radius: 10px;
-    border: 2px solid var(--earth-green);
+    border: 2px solid var(--accent-color);
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.earth-title-main {
+.mars-title-main {
     font-size: 1.8rem;
     font-weight: 900;
-    color: var(--earth-green);
+    color: #228B22;  /* Лесной зеленый */
     letter-spacing: 3px;
-    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 100, 0, 0.5);
     margin-bottom: 5px;
 }
 
-.earth-title-sub {
+.mars-title-sub {
     font-size: 0.8rem;
-    color: var(--text-color);
+    color: #008000;  /* Темно-зеленый */
     opacity: 0.7;
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
-.earth-icon {
+.mars-icon {
     width: 80px;
     height: 80px;
     margin-top: 10px;
@@ -1109,13 +1136,13 @@ body {
     }
 }
 
-.earth-icon svg {
+.mars-icon svg {
     width: 100%;
     height: 100%;
     transition: transform 0.3s ease;
 }
 
-.earth-logo:hover .earth-icon svg {
+.mars-logo:hover .mars-icon svg {
     transform: scale(1.1);
 }
 
@@ -1143,7 +1170,6 @@ body {
         height: 60px;
     }
 }
-
 #research h2 {
     font-size: 3rem;
     text-transform: uppercase;
@@ -1153,10 +1179,10 @@ body {
     overflow: hidden;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    border: 2px solid var(--earth-green);
+    border: 2px solid #09ff00a2;
     box-shadow: 
-        0 0 20px rgba(0, 128, 0, 0.5), 
-        inset 0 0 30px rgba(0, 100, 0, 0.3);
+        0 0 20px rgba(30, 255, 0, 0.5), 
+        inset 0 0 30px rgba(43, 255, 0, 0.3);
     letter-spacing: 3px;
     margin-bottom: 40px;
     transition: all 0.3s ease;
@@ -1172,7 +1198,7 @@ body {
     background: linear-gradient(
         to right, 
         transparent, 
-        rgba(0, 200, 0, 0.3), 
+        rgba(0, 255, 21, 0.3), 
         transparent
     );
     transform: skew(-45deg);
@@ -1186,7 +1212,7 @@ body {
 
 #research h2:hover {
     transform: scale(1.02);
-    text-shadow: 0 0 15px rgba(255,69,0,0.5);
+    text-shadow: 0 0 15px rgba(30, 255, 0, 0.5);
 }
 
 #research .section-grid {
@@ -1196,13 +1222,13 @@ body {
     background-color: rgba(26, 26, 26, 0.8);
     padding: 40px;
     border-radius: 15px;
-    border: 2px solid var(--earth-green);
-    box-shadow: 0 10px 30px rgba(0,128,0,0.2);
+    border: 2px solid rgba(0, 255, 13, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     transition: all 0.3s ease;
 }
 
 #research .section-grid:hover {
-    box-shadow: 0 15px 40px rgba(255, 69, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(51, 255, 0, 0.2);
     transform: translateY(-10px);
 }
 
@@ -1211,13 +1237,13 @@ body {
     max-height: 450px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(255, 69, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 255, 34, 0.3);
     transition: all 0.5s ease;
 }
 
 #research .section-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(255, 69, 0, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 255, 0, 0.4);
 }
 
 #research .research-details {
@@ -1231,7 +1257,7 @@ body {
     background-color: rgba(26, 26, 26, 0.7);
     border-radius: 10px;
     padding: 20px;
-    border-left: 4px solid var(--earth-green);
+    border-left: 4px solid #00ff22a1;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1247,7 +1273,7 @@ body {
     background: linear-gradient(
         to right, 
         transparent, 
-        rgba(255, 69, 0, 0.1), 
+        rgba(30, 255, 0, 0.1), 
         transparent
     );
     transition: all 0.5s ease;
@@ -1259,11 +1285,11 @@ body {
 
 #research .research-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(255, 69, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
 }
 
 #research .research-item h3 {
-    color: var(--earth-green);
+    color: #00ff159a;
     margin-bottom: 10px;
     font-size: 1.2rem;
     display: flex;
@@ -1271,7 +1297,7 @@ body {
 }
 
 #research .research-item h3::before {
-    content: '🌍';
+    content: '🚀';
     margin-right: 10px;
 }
 
@@ -1296,10 +1322,10 @@ body {
     overflow: hidden;
     padding: 20px;
     background: rgba(0,0,0,0.8);
-    border: 2px solid var(--earth-green);
+    border: 2px solid #33ff00a9;
     box-shadow: 
-        0 0 20px rgba(0, 128, 0, 0.5), 
-        inset 0 0 30px rgba(0, 100, 0, 0.3);
+        0 0 20px rgba(0, 255, 13, 0.5), 
+        inset 0 0 30px rgba(60, 255, 0, 0.3);
     letter-spacing: 3px;
     margin-bottom: 40px;
     transition: all 0.3s ease;
@@ -1329,7 +1355,7 @@ body {
 
 #facts h2:hover {
     transform: scale(1.02);
-    text-shadow: 0 0 15px rgba(255,69,0,0.5);
+    text-shadow: 0 0 15px rgba(30, 255, 0, 0.5);
 }
 
 /* Для мобильных устройств */
@@ -1353,7 +1379,6 @@ body {
     perspective: 1000px;
 }
 
-
 .facts-navigation {
     display: flex;
     flex-direction: column;
@@ -1363,13 +1388,19 @@ body {
 }
 
 #fact-search {
-    border: 2px solid var(--earth-green);
+    width: 350px;
+    padding: 12px 20px;
+    background-color: rgba(26, 26, 26, 0.8);
+    border: 2px solid #1eff00;
+    border-radius: 50px;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(9, 255, 0, 0.3);
 }
-
 
 #fact-search:focus {
     outline: none;
-    box-shadow: 0 0 25px rgba(255, 69, 0, 0.5);
+    box-shadow: 0 0 25px rgba(9, 255, 0, 0.5);
     transform: scale(1.02);
 }
 
@@ -1382,10 +1413,16 @@ body {
 }
 
 .category-btn {
-    border: 2px solid var(--earth-green);
-    color: var(--earth-green);
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #15ff009f;
+    border-radius: 50px;
+    color: #1eff00b2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
-
 
 .category-btn::before {
     content: '';
@@ -1397,7 +1434,7 @@ body {
     background: linear-gradient(
         120deg, 
         transparent, 
-        rgba(255, 69, 0, 0.3), 
+        rgba(30, 255, 0, 0.3), 
         transparent
     );
     transition: all 0.5s ease;
@@ -1408,8 +1445,9 @@ body {
 }
 
 .category-btn.active {
-    background-color: var(--earth-green);
+    background-color: #09ff00b2;
     color: #000;
+    transform: scale(1.1);
 }
 
 .facts-grid {
@@ -1423,10 +1461,10 @@ body {
     background-color: rgba(26, 26, 26, 0.8);
     border-radius: 15px;
     padding: 25px;
-    border: 2px solid var(--earth-green);
+    border: 2px solid rgba(0, 255, 0, 0.3);
     transition: all 0.5s ease;
     transform: translateZ(-50px);
-    box-shadow: 0 10px 30px rgba(0,128,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     position: relative;
     overflow: hidden;
 }
@@ -1440,7 +1478,7 @@ body {
     height: 200%;
     background: radial-gradient(
         circle at center, 
-        rgba(255, 69, 0, 0.1), 
+        rgba(21, 255, 0, 0.1), 
         transparent 70%
     );
     transform: rotate(45deg);
@@ -1449,8 +1487,8 @@ body {
 }
 
 .fact-card:hover {
-    transform: translateX(10px);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Увеличенная тень при наведении */
+    transform: scale(1.05) translateZ(50px);
+    box-shadow: 0 15px 40px rgba(0, 255, 34, 0.2);
 }
 
 .fact-card:hover::before {
@@ -1459,7 +1497,7 @@ body {
 
 .fact-number {
     font-size: 2.5em;
-    color: #ff4500;
+    color: #00ff22a9;
     font-weight: 900;
     position: absolute;
     top: 10px;
@@ -1474,7 +1512,10 @@ body {
 }
 
 .fact-icon {
-    color: var(--earth-green);
+    font-size: 3.5em;
+    margin: 15px 0;
+    color: #2bff00a2;
+    transition: all 0.3s ease;
 }
 
 .fact-card:hover .fact-icon {
@@ -1493,8 +1534,8 @@ body {
 .prev-btn, .next-btn {
     padding: 12px 25px;
     background-color: transparent;
-    border: 2px solid #ff4500;
-    color: #ff4500;
+    border: 2px solid #15ff00a6;
+    color: #1eff00a8;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1504,7 +1545,7 @@ body {
 
 .prev-btn:hover, .next-btn:hover {
     color: #000;
-    background-color: #ff4500;
+    background-color: #00ff00a9;
 }
 
 .prev-btn:disabled, .next-btn:disabled {
@@ -1527,13 +1568,13 @@ body {
 /* Основные стили для текста фактов */
 .fact-card h3 {
     font-family: 'Orbitron', sans-serif;
-    color: #ff4500;
+    color: #00ff2a94;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     position: relative;
     text-shadow: 
-        0 0 10px rgba(255, 69, 0, 0.3),
-        0 0 5px rgba(255, 69, 0, 0.2);
+        0 0 10px rgba(9, 255, 0, 0.3),
+        0 0 5px rgba(0, 255, 85, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -1546,16 +1587,14 @@ body {
     height: 2px;
     background: linear-gradient(
         to right, 
-        #ff4500, 
+        #006d09a4, 
         transparent
     );
     transition: width 0.3s ease;
 }
 
-.fact-card h3 {
-    color: var(--earth-green);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+.fact-card:hover h3 {
+    transform: scale(1.05);
 }
 
 .fact-card:hover h3::before {
@@ -1575,7 +1614,7 @@ body {
     content: '•';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #05b80ea8;
     font-weight: bold;
 }
 
@@ -1596,7 +1635,7 @@ body {
     content: '➤';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #0e8803a8;
     opacity: 0.7;
     transition: all 0.3s ease;
 }
@@ -1607,12 +1646,15 @@ body {
 
 .fact-card:hover .fact-details ul li::before {
     opacity: 1;
-    color: #ff6b35;
+    color: #43b327cb;
 }
 
 /* Эффект для цифр фактов */
 .fact-number {
-    color: var(--earth-green);
+    font-family: 'Orbitron', sans-serif;
+    color: #12e01da6;
+    opacity: 0.3;
+    transition: all 0.3s ease;
 }
 
 .fact-card:hover .fact-number {
@@ -1635,13 +1677,13 @@ body {
 @keyframes fact-glow {
     0%, 100% {
         text-shadow: 
-            0 0 10px rgba(255, 69, 0, 0.3),
-            0 0 5px rgba(255, 69, 0, 0.2);
+            0 0 10px rgba(43, 255, 0, 0.3),
+            0 0 5px rgba(30, 255, 0, 0.2);
     }
     50% {
         text-shadow: 
-            0 0 15px rgba(255, 69, 0, 0.5),
-            0 0 8px rgba(255, 69, 0, 0.4);
+            0 0 15px rgba(0, 255, 42, 0.5),
+            0 0 8px rgba(60, 255, 0, 0.4);
     }
 }
 
@@ -1706,10 +1748,10 @@ body {
     border-radius: 30px;
     padding: 40px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 69, 0, 0.2);
+    border: 1px solid rgba(30, 255, 0, 0.2);
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.3),
-        0 5px 15px rgba(255, 69, 0, 0.1);
+        0 5px 15px rgba(0, 255, 0, 0.1);
     transition: all 0.5s ease;
 }
 
@@ -1717,12 +1759,17 @@ body {
     transform: translateY(-10px);
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.4),
-        0 7px 20px rgba(255, 69, 0, 0.2);
+        0 7px 20px rgba(30, 255, 0, 0.2);
 }
 
 #history .history-section .description-content h4 {
-    color: var(--earth-green);
-    border-bottom: 2px solid var(--earth-green);
+    color: #00ff15b7;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 #history .history-section .description-content h4::after {
@@ -1734,7 +1781,7 @@ body {
     height: 3px;
     background: linear-gradient(
         to right, 
-        #ff4500, 
+        #48ff00bd, 
         transparent
     );
 }
@@ -1753,7 +1800,7 @@ body {
     content: '•';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #4eb30cb9;
     font-weight: bold;
 }
 
@@ -1764,9 +1811,12 @@ body {
 }
 
 #history .history-section .description-content ul li {
-    background-color: rgba(26, 26, 26, 0.5);
     color: #ffffff;
-    border-bottom: 1px solid var(--earth-green);
+    padding: 10px 0;
+    position: relative;
+    padding-left: 30px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 69, 0, 0.1);
 }
 
 #history .history-section .description-content ul li:last-child {
@@ -1777,19 +1827,19 @@ body {
     content: '✦';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #11b411b7;
     opacity: 0.7;
     transition: all 0.3s ease;
 }
 
 #history .history-section .description-content ul li:hover {
     transform: translateX(10px);
-    color: #ff4500;
+    color: #18bb18af;
 }
 
 #history .history-section .description-content ul li:hover::before {
     opacity: 1;
-    color: #ff4500;
+    color: #4bc91ac4;
 }
 
 #history .history-section .historical-context {
@@ -1801,7 +1851,7 @@ body {
 }
 
 #history .history-section .historical-context h4 {
-    color: #ff4500;
+    color: #1bd124bd;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1828,7 +1878,7 @@ body {
     border-radius: 20px;
     padding: 25px;
     margin-top: 20px;
-    border-left: 4px solid #ff4500;
+    border-left: 4px solid #22c72bc2;
     transition: all 0.3s ease;
 }
 
@@ -1837,7 +1887,7 @@ body {
 }
 
 #history .history-section .additional-info h4 {
-    color: #ff4500;
+    color: #48cf2dc4;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1866,10 +1916,10 @@ body {
     padding: 40px;
     margin-bottom: 30px;
     backdrop-filter: blur(10px);
-    border: 2px solid var(--earth-green);
+    border: 2px solid rgba(0, 255, 0, 0.2);
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.3),
-        0 5px 15px rgba(0, 128, 0, 0.1);
+        0 5px 15px rgba(0, 255, 34, 0.1);
     transition: all 0.5s ease;
     overflow: hidden;
     position: relative;
@@ -1879,7 +1929,7 @@ body {
     transform: translateY(-10px);
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.4),
-        0 7px 20px rgba(255, 69, 0, 0.2);
+        0 7px 20px rgba(0, 255, 13, 0.2);
 }
 
 #history .history-section::before {
@@ -1891,7 +1941,7 @@ body {
     height: 200%;
     background: radial-gradient(
         circle at center, 
-        rgba(255, 69, 0, 0.05), 
+        rgba(9, 255, 0, 0.05), 
         transparent 70%
     );
     transform: rotate(45deg);
@@ -1905,7 +1955,7 @@ body {
 }
 
 #history .history-section h3 {
-    color: var(--earth-green);
+    color: #2bff00;
     text-align: center;
     position: relative;
     margin-bottom: 30px;
@@ -1925,7 +1975,7 @@ body {
     background: linear-gradient(
         to right, 
         transparent, 
-        var(--earth-green), 
+        #33ff00bb, 
         transparent
     );
 }
@@ -1944,7 +1994,7 @@ body {
     border-radius: 30px;
     box-shadow: 
         0 15px 30px rgba(0, 0, 0, 0.3),
-        0 5px 15px rgba(255, 69, 0, 0.1);
+        0 5px 15px rgba(51, 255, 0, 0.1);
     transition: all 0.5s ease;
 }
 
@@ -1952,16 +2002,16 @@ body {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.4),
-        0 7px 20px rgba(255, 69, 0, 0.2);
+        0 7px 20px rgba(43, 255, 0, 0.2);
 }
 
-.history-section .mission-description {
+#history .history-section .mission-description {
     background-color: rgba(39, 39, 39, 0.7);
     border-radius: 20px;
     padding: 30px;
     width: 100%;
     backdrop-filter: blur(5px);
-    border: 1px solid var(--earth-green);
+    border: 1px solid rgba(21, 255, 0, 0.1);
 }
 
 #history .history-section .mission-description p {
@@ -1981,7 +2031,7 @@ body {
     transform: translateX(-50%);
     width: 50px;
     height: 2px;
-    background-color: #ff4500;
+    background-color: #48ff00;
 }
 
 #history .history-section .mission-description ul {
@@ -2013,7 +2063,7 @@ body {
     background: linear-gradient(
         to right, 
         transparent, 
-        rgba(255, 69, 0, 0.2), 
+        rgba(72, 255, 0, 0.2), 
         transparent
     );
     transition: all 0.5s ease;
@@ -2021,7 +2071,7 @@ body {
 
 #history .history-section .mission-description ul li:hover {
     transform: translateY(-5px);
-    background-color: rgba(255, 69, 0, 0.1);
+    background-color: rgba(30, 255, 0, 0.1);
 }
 
 #history .history-section .mission-description ul li:hover::before {
@@ -2056,16 +2106,16 @@ body {
     max-width: 90%;
     transition: all 0.4s ease;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 69, 0, 0.3);
+    border: 1px solid rgba(0, 255, 0, 0.3);
     box-shadow: 
         0 4px 10px rgba(0,0,0,0.3),
-        0 2px 5px rgba(255, 69, 0, 0.2);
+        0 2px 5px rgba(72, 255, 0, 0.2);
     letter-spacing: 0.5px;
     font-style: italic;
 }
 
 .history-section .mission-image-container:hover .image-caption {
-    background-color: rgba(255, 69, 0, 0.8);
+    background-color: rgba(51, 255, 0, 0.8);
     transform: 
         translateX(-50%) 
         translateY(-10px);
@@ -2081,7 +2131,7 @@ body {
 
 .facts-pagination .prev-btn,
 .facts-pagination .next-btn {
-    background-color: rgba(255, 69, 0, 0.7);
+    background-color: rgba(0, 255, 21, 0.623);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -2097,13 +2147,11 @@ body {
 }
 
 #footer {
-    background-color: var(--primary-bg);
-    color: var(--secondary-text);
-    text-align: center;
-    padding: 30px 0;
-    border-top: 2px solid var(--earth-green);
+    clear: both; /* Очистка обтекания */
+    width: 100%;
+    position: relative;
+    z-index: 10;
 }
-
 #history .history-section .description-content p {
     color: #ffffff; /* Чистый белый */
     opacity: 1; /* Убрал затемнение */
@@ -2114,104 +2162,31 @@ body {
     padding-left: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Добавил легкую тень для контраста */
 }
-/* Типографика */
-h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
-    color: var(--earth-green);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
 
-p {
-    color: var(--text-color);
-    line-height: 1.7;
-}
-
-/* Кнопки */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: var(--earth-green);
-    color: var(--text-color);
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.btn:hover {
-    background-color: var(--earth-dark-green);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 128, 0, 0.4);
-}
-
-/* Адаптивность */
-@media (max-width: 992px) {
-    body {
-        font-size: 14px;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .section-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 12px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .mission-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Скроллбар */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--earth-light-blue);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--earth-green);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--earth-dark-green);
-}
-
-
-</style>
+    </style>
 </head>
 <body>
-    <nav id="navigation" class="earth-navigation">
+    <nav id="navigation" class="mars-navigation">
         <div class="logo-corner">
-            <div class="earth-logo">
-                <span class="earth-title-main">EARTH</span>
-                <span class="earth-title-sub">EXPEDITION</span>
-                <div class="earth-icon">
+            <div class="mars-logo">
+                <span class="mars-title-main">MARS</span>
+                <span class="mars-title-sub">EXPEDITION</span>
+                <div class="mars-icon">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="45" fill="#4169E1"/>
-                        <path d="M20,50 Q50,20 80,50 T50,80" stroke="#228B22" stroke-width="3" fill="none"/>
-                        <circle cx="35" cy="40" r="5" fill="#FFFFFF"/>
-                        <circle cx="65" cy="40" r="5" fill="#FFFFFF"/>
-                        <path d="M40,60 Q50,70 60,60" stroke="#000000" stroke-width="2" fill="none"/>
+                        <!-- Фон Земли (океан) -->
+                        <circle cx="50" cy="50" r="45" fill="#1E90FF"/> <!-- Цвет океана -->
+                    
+                        <!-- Континенты -->
+                        <path d="M30,40 Q25,30 40,25 Q50,20 60,30 Q70,40 60,50 Q50,60 40,55 Q30,50 30,40 Z" fill="#228B22"/> <!-- Континент 1 -->
+                        <path d="M70,30 Q75,20 85,25 Q90,35 80,40 Q75,45 70,40 Z" fill="#228B22"/> <!-- Континент 2 -->
+                        <path d="M40,70 Q45,80 55,75 Q60,70 65,80 Q55,85 45,80 Q40,75 40,70 Z" fill="#228B22"/> <!-- Континент 3 -->
+                    
+                        <!-- Глаза (если хотите добавить) -->
+                        <circle cx="35" cy="40" r="3" fill="#FFFFFF"/> <!-- Левый глаз -->
+                        <circle cx="65" cy="40" r="3" fill="#FFFFFF"/> <!-- Правый глаз -->
+                        
+                        <!-- Улыбка -->
+                        <path d="M40,60 Q50,70 60,60" stroke="#FFFFFF" stroke-width="2" fill="none"/> <!-- Улыбка -->
                     </svg>
                 </div>
             </div>
@@ -2221,8 +2196,8 @@ p {
             <div class="nav-content">
                 <div class="nav-header">
                     <div class="nav-actions">
-                        <a href="https://earth.nasa.gov/" target="_blank" class="explore-button">
-                            <span class="button-icon">🌍</span>
+                        <a href="https://explore-mars.esri.com/" target="_blank" class="explore-button">
+                            <span class="button-icon">🔭</span>
                             <span class="button-text">Исследование</span>
                         </a>
                         <button id="back-button" onclick="window.location.href='index.html'">
@@ -2244,130 +2219,249 @@ p {
 
     <section id="hero">
         <div class="container hero-content">
-            <h1>Земля: Голубая Планета</h1>
-            <p>Величайшее чудо космического разнообразия</p>
+            <h1>Марс: Красная Планета</h1>
+            <p>Величайшее космическое приключение человечества</p>
         </div>
     </section>
 
     <section id="history" class="section">
-        <div class="container">
-            <h2>История Изучения Земли</h2>
-            <div class="section-grid">
-                <div class="history-content">
-                    <div class="history-section ancient-earth-observations">
-                        <h3>Древние представления о Земле</h3>
-                        <div class="mission-details">
-                            <div class="mission-image-container">
-                                <img src="img/ancient_earth_map.jpg" alt="Древняя карта мира" class="mission-image">
-                                <div class="image-caption">
-                                    <p>Древняя карта мира</p>
-                                </div>
+    <div class="container">
+        <h2>История Исследования Марса</h2>
+        <div class="section-grid">
+            <div class="history-content">
+                <div class="history-section ancient-mars-observations">
+                    <h3>Древние наблюдения: Марс в мировоззрении древних цивилизаций</h3>
+                    <div class="mission-details">
+                        <div class="mission-image-container">
+                            <img src="img/i (17).webp" alt="Древние наблюдения Марса" class="mission-image">
+                            <div class="image-caption">
+                                <p>Древнеегипетские астрономические наблюдения за Марсом</p>
                             </div>
-                            <div class="mission-description">
-                                <div class="description-content">
-                                    <h4>Земля в мировоззрении древних цивилизаций</h4>
-                                    <p>Древние цивилизации формировали уникальные представления о строении и природе нашей планеты, основываясь на мифологии, наблюдениях и философских размышлениях.</p>
-                                    
-                                    <h4>Мифологические воззрения</h4>
-                                    <ul>
-                                        <li>✦ Греция: Гея как живое существо, олицетворение Земли</li>
-                                        <li>✦ Китай: Концепция плоской Земли с четырьмя сторонами света</li>
-                                        <li>✦ Майя: Космологические представления о многослойной вселенной</li>
-                                        <li>✦ Египет: Земля как divine творение бога Геба</li>
-                                    </ul>
-                                </div>
+                        </div>
+                        <div class="mission-description">
+                            <div class="description-content">
+                                <h4>Марс в древних цивилизациях</h4>
+                                <p>Красная планета с древнейших времен завораживала человечество своим необычным цветом и движением по ночному небу. Различные культуры видели в Марсе глубокий символический смысл.</p>
+                                
+                                <h4>Мифология и астрономия</h4>
+                                <ul>
+                                    <li>✦ Египет: "Har decher" - Красная планета</li>
+                                    <li>✦ Вавилон: Связь с богом войны Нергалом</li>
+                                    <li>✦ Греция: Отождествление с Аресом</li>
+                                    <li>✦ Китай: Символ огня и агрессии</li>
+                                </ul>
+                                
+                                <h4>Астрономические наблюдения</h4>
+                                <p>Первые систематические наблюдения за Марсом велись древнеегипетскими и вавилонскими астрономами. Они тщательно отслеживали движение планеты, связывая её положение с различными астрологическими и религиозными событиями.</p>
+                            </div>
+                            
+                            <div class="historical-context">
+                                <h4>Исторический срез</h4>
+                                <ul>
+                                    <li>📅 Период наблюдений: 3000-500 до н.э.</li>
+                                    <li>🔭 Инструменты: Визуальные наблюдения</li>
+                                    <li>🌍 Ключевые цивилизации: Египет, Вавилон, Греция</li>
+                                    <li>📊 Точность расчетов: До 1-2 градусов</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-    
-                    <div class="history-section scientific-discoveries">
-                        <h3>Научные Открытия</h3>
-                        <div class="mission-details">
-                            <div class="mission-image-container">
-                                <img src="img/scientific_revolution.jpg" alt="Научная революция" class="mission-image">
-                                <div class="image-caption">
-                                    <p>Эпоха научных революций и географических открытий</p>
-                                </div>
-                            </div>
-                            <div class="mission-description">
-                                <div class="description-content">
-                                    <h4>Эволюция научного понимания</h4>
-                                    <p>Период с XV по XVIII века стал переломным в понимании строения и природы Земли.</p>
-                                    
-                                    <h4>Ключевые Исследователи</h4>
-                                    <ul>
-                                        <li>✦ Коперник: Гелиоцентрическая модель мира</li>
-                                        <li>✦ Галилей: Телескопические наблюдения</li>
-                                        <li>✦ Колумб: Экспедиции и географические открытия</li>
-                                        <li>✦ Ньютон: Законы гравитации и движения </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="history-section geological-research">
-                        <h3>Геологические Исследования</h3>
-                        <div class="mission-details">
-                            <div class="mission-image-container">
-                                <img src="img/geological_layers.jpg" alt="Геологические слои" class="mission-image">
-                                <div class="image-caption">
-                                    <p>Изучение геологических слоев и тектонических процессов</p>
-                                </div>
-                            </div>
-                            <div class="mission-description">
-                                <div class="description-content">
-                                    <h4>Понимание Геологических Процессов</h4>
-                                    <p>XIX и XX века стали временем глубокого изучения внутренней структуры и динамики нашей планеты.</p>
-                                    
-                                    <h4>Революционные Теории</h4>
-                                    <ul>
-                                        <li>✦ Теория тектоники плит</li>
-                                        <li>✦ Исследования вулканической активности</li>
-                                        <li>✦ Изучение геологических эпох</li>
-                                        <li>✦ Палеонтологические открытия</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="historical-context">
-                        <h4>Контекст Исторических Изменений</h4>
-                        <ul>
-                            <li>📌 Первые карты мира создавались более 2500 лет назад</li>
-                            <li>📌 Первое кругосветное путешествие Магеллана (1519-1522)</li>
-                            <li>📌 Первые спутниковые снимки Земли в 1960-х годах</li>
-                            <li>📌 Современные технологии картографирования и исследования</li>
-                        </ul>
-                    </div>
-    
+                    
                     <div class="additional-info">
-                        <h4>Значение Познания</h4>
-                        <p>Каждое научное открытие расширяло наше понимание Земли как сложной, динамичной системы, полной удивительных взаимосвязей и процессов.</p>
+                        <h4>Культурное значение</h4>
+                        <p>Марс всегда был больше, чем просто планета. Для древних цивилизаций это был живой символ, олицетворяющий войну, страсть и космический порядок. Наблюдения за Марсом были не только научными, но и глубоко философскими и духовными.</p>
                     </div>
+                </div>
+    
+   
+
+                <div class="history-section first-scientific-discoveries">
+    <h3>Первые научные открытия: Марс глазами Галилео</h3>
+    <div class="mission-details">
+        <div class="mission-image-container">
+            <img src="img/i (16).webp" alt="Галилео Галилей" class="mission-image">
+            <div class="image-caption">
+                <p>Галилео Галилей и его первый телескоп</p>
+            </div>
+        </div>
+        <div class="mission-description">
+            <div class="description-content">
+                <h4>Революция в астрономии</h4>
+                <p>В 1609 году Галилео Галилей совершил переворот в научном понимании планет, впервые применив телескоп для систематических астрономических наблюдений. Марс стал одной из первых планет, которую он тщательно изучил.</p>
+                
+                <h4>Технология наблюдений</h4>
+                <ul>
+                    <li>✦ Телескоп с увеличением 20x</li>
+                    <li>✦ Первые зарисовки поверхности Марса</li>
+                    <li>✦ Обнаружение фаз планеты</li>
+                    <li>✦ Подтверждение гелиоцентрической модели</li>
+                </ul>
+                
+                <h4>Ключевые наблюдения</h4>
+                <p>Галилей смог разглядеть диск Марса и его фазы, что стало революционным открытием. Эти наблюдения подтвердили теорию Коперника о движении планет вокруг Солнца и навсегда изменили представления человечества о строении Солнечной системы.</p>
+                
+                <h4>Научный контекст</h4>
+                <p>Наблюдения происходили в период острой борьбы между гелиоцентрической и геоцентрической моделями мира. Каждое новое открытие подрывало авторитет старой системы и утверждало научный метод познания.</p>
+            </div>
+            
+            <div class="historical-context">
+                <h4>Историческая справка</h4>
+                <ul>
+                    <li>📅 Год открытия: 1609</li>
+                    <li>🔭 Увеличение телескопа: 20x</li>
+                    <li>👨‍🔬 Исследователь: Галилео Галилей</li>
+                    <li>🌍 Период: Научная революция</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="additional-info">
+        <h4>Значение для науки</h4>
+        <p>Первые наблюдения Галилея стали фундаментальным моментом в изучении Марса. Они показали, что планеты - это не идеальные сферы, а сложные небесные тела с собственной геометрией и динамикой. Это открытие проложило путь для будущих поколений исследователей космоса.</p>
+    </div>
+    </div>
+                
+    <div class="history-section mars-channels-section">
+        <h3>Гипотеза марсианских каналов: Научная фантазия XIX века</h3>
+        <div class="mission-details">
+            <div class="mission-image-container">
+                <img src="img/ef6d7fcbbb9ee8ec669ea6dd8df8181a.png" alt="Карта каналов Скиапарелли" class="mission-image">
+                <div class="image-caption">
+                    <p>Карта марсианских каналов, составленная Джованни Скиапарелли</p>
+                </div>
+            </div>
+            <div class="mission-description">
+                <div class="description-content">
+                    <h4>Открытие Скиапарелли</h4>
+                    <p>В 1877 году во время великого противостояния Марса итальянский астроном Джованни Скиапарелли впервые описал загадочные линейные образования на поверхности Красной планеты, которые он назвал "canali" (каналы).</p>
+                    
+                    <h4>Научный и общественный резонанс</h4>
+                    <ul>
+                        <li>✦ Термин "canali" неправильно переведен как "каналы"</li>
+                        <li>✦ Появление спекуляций о искусственном происхождении линий</li>
+                        <li>✦ Предположения о развитой марсианской цивилизации</li>
+                        <li>✦ Активный интерес научного сообщества</li>
+                    </ul>
+                    
+                    <h4>Теория Лоуэлла</h4>
+                    <p>Американский астроном Персиваль Лоуэлл развил теорию Скиапарелли, создав детальные карты предполагаемых ирригационных систем. Он утверждал, что каналы - результат деятельности разумных существ, борющихся за выживание на засушливой планете.</p>
+                    
+                    <h4>Научное опровержение</h4>
+                    <p>Современные исследования полностью опровергли гипотезу об искусственных каналах. Линии, виденные Скиапарелли, были оптической иллюзией, вызванной несовершенством телескопов того времени.</p>
+                </div>
+                
+                <div class="historical-context">
+                    <h4>Исторический контекст</h4>
+                    <ul>
+                        <li>📅 1877 год - год первого описания "каналов"</li>
+                        <li>🔭 Телескоп: 8-дюймовый рефрактор</li>
+                        <li>👨‍🔬 Автор открытия: Джованни Скиапарелли</li>
+                        <li>🌍 Эпоха: Период научного романтизма</li>
+                    </ul>
                 </div>
             </div>
         </div>
+        
+        <div class="additional-info">
+            <h4>Влияние на культуру</h4>
+            <p>Гипотеза марсианских каналов вдохновила целое поколение писателей-фантастов, включая Герберта Уэллса и его знаменитый роман "Война миров". Она стала символом научного воображения и устремлений человечества к познанию неизведанного.</p>
+        </div>
+    </div>
+
+
+    <div class="history-section">
+        <h3>Первые космические миссии</h3>
+        <div class="mission-grid">
+            <div class="mission-item mission-item-mariner4">
+                <div class="mission-image-container">
+                    <img src="img/1964 - Mariner 4.webp" alt="Mariner 4" class="mission-image">
+                </div>
+                <h4>1964 - Mariner 4</h4>
+                <div class="image-caption">
+                    <p>Первый пролёт около Марса (NASA). Передал первые близкие снимки поверхности планеты.</p>
+                </div>
+            </div>
+    
+            <div class="mission-item mission-item-mariner9">
+                <div class="mission-image-container">
+                    <img src="img/2017Space_Interplanetary_Space_Station_Mariner_in_orbit_of_the_planet_Mars_112285_.jpg" alt="Mariner 9" class="mission-image">
+                </div>
+                <h4>1971 - Mariner 9</h4>
+                <div class="image-caption">
+                    <p>Первый искусственный спутник Марса (NASA). Совершил полную съёмку поверхности планеты.</p>
+                </div>
+            </div>
+    
+            <div class="mission-item mission-item-viking">
+                <div class="mission-image-container">
+                    <img src="img/1976 - Viking 1 и 2.webp" alt="Viking Landers" class="mission-image">
+                </div>
+                <h4>1976 - Viking 1 и 2</h4>
+                <div class="image-caption">
+                    <p>Первые посадочные аппараты на поверхность Марса. Провели первые научные эксперименты.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+            
+                   
+
+                <div class="history-section">
+                    <h3>Современные исследования</h3>
+                    <div class="mission-details">
+                        <img src="img/i (13).webp" alt="Современные исследования Марса" class="mission-image">
+                        <div class="mission-description">
+                            <p>Сегодня изучением Марса занимаются:</p>
+                            <ul>
+                                <li>NASA (США)</li>
+                                <li>Роскосмос (Россия)</li>
+                                <li>CNSA (Китай)</li>
+                                <li>ESA (Европейское космическое агентство)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>Будущее исследований</h3>
+                    <div class="mission-details">
+                        <img src="img/i (14).webp" alt="Будущее исследований Марса" class="mission-image">
+                        <div class="mission-description">
+                            <p>Основные цели современных миссий:</p>
+                            <ul>
+                                <li>Поиск следов древней жизни</li>
+                                <li>Изучение возможности колонизации</li>
+                                <li>Исследование климатической истории</li>
+                                <li>Подготовка к пилотируемым миссиям</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
     </section>
+
     <section id="research" class="section">
         <div class="container">
-            <h2>Современные Исследования Земли</h2>
+            <h2>Современные Исследования</h2>
             <div class="section-grid">
-                <img src="img/earth_research.jpg" alt="Исследования Земли" class="section-image">
+                <img src="img/i (15).webp" alt="Mars Rover" class="section-image">
                 <div>
                     <div class="research-details">
                         <div class="research-item">
-                            <h3>Спутниковый Мониторинг</h3>
-                            <p>Глобальные системы наблюдения за климатом, океанами и поверхностью Земли.</p>
+                            <h3>Роверы NASA</h3>
+                            <p>Миссии Curiosity и Perseverance исследуют поверхность Марса, собирают образцы грунта и ищут следы древней микробной жизни.</p>
                         </div>
                         <div class="research-item">
-                            <h3>Климатические Исследования</h3>
-                            <p>Изучение глобальных климатических изменений и их влияния на экосистемы.</p>
+                            <h3>Орбитальные Миссии</h3>
+                            <p>Спутники изучают атмосферу, геологию и климатические условия планеты, предоставляя детальные карты и научные данные.</p>
                         </div>
                         <div class="research-item">
-                            <h3>Экологический Мониторинг</h3>
-                            <p>Комплексное наблюдение за биоразнообразием и экологическими системами.</p>
+                            <h3>Будущие Экспедиции</h3>
+                            <p>Планируются миссии по возврату марсианских образцов на Землю и подготовка к первым пилотируемым экспедициям.</p>
                         </div>
                     </div>
                 </div>
@@ -2377,9 +2471,20 @@ p {
 
     <section id="facts" class="section">
         <div class="container">
-            <h2>20 Потрясающих Фактов о Земле</h2>
+            <h2>20 Потрясающих Фактов о Марсе</h2>
             
             <div class="facts-container">
+                <div class="facts-navigation">
+                    <input type="text" id="fact-search" placeholder="🔍 Найти факт...">
+                    <div class="fact-categories">
+                        <button class="category-btn active" data-category="all">Все</button>
+                        <button class="category-btn" data-category="geology">Геология</button>
+                        <button class="category-btn" data-category="atmosphere">Атмосфера</button>
+                        <button class="category-btn" data-category="exploration">Исследования</button>
+                        <button class="category-btn" data-category="unique">Уникальные</button>
+                    </div>
+                </div>
+    
                 <div class="facts-grid">
                     <!-- Факт 1: Самая высокая гора -->
                     <div class="fact-card" data-category="geology">
@@ -2387,315 +2492,320 @@ p {
                         <div class="fact-icon">🏔️</div>
                         <h3>Самая высокая гора</h3>
                         <div class="fact-details">
-                            <p>Эверест - высочайшая точка планеты.</p>
+                            <p>Гора Олимп на Марсе - самый большой вулкан в Солнечной системе.</p>
                             <ul>
-                                <li>Высота: 8848 м</li>
-                                <li>Расположение: Гималаи</li>
-                                <li>Первое восхождение: 1953 год</li>
+                                <li>Высота: 21.9 км</li>
+                                <li>Диаметр основания: 600 км</li>
+                                <li>В 2.5 раза выше Эвереста</li>
                             </ul>
                         </div>
                     </div>
     
-                    <!-- Факт 2: Глубочайшая впадина -->
-                    <div class="fact-card" data-category="geology">
+                    <!-- Факт 2: Экстремальные температуры -->
+                    <div class="fact-card" data-category="atmosphere">
                         <div class="fact-number">02</div>
-                        <div class="fact-icon">🌊</div>
-                        <h3>Глубочайшая впадина</h3>
+                        <div class="fact-icon">❄️</div>
+                        <h3>Экстремальные температуры</h3>
                         <div class="fact-details">
-                            <p>Марианская впадина - самое глубокое место на Земле.</p>
+                            <p>Температура на Марсе может колебаться от +20°C до -140°C.</p>
                             <ul>
-                                <li>Глубина: 11034 м</li>
-                                <li>Расположение: Тихий океан</li>
-                                <li>Давление: 1100 атмосфер</li>
+                                <li>Максимум днем: +20°C</li>
+                                <li>Минимум ночью: -140°C</li>
+                                <li>Перепад температур: 160°C</li>
                             </ul>
                         </div>
                     </div>
     
-                    <!-- Факт 3: Возраст Земли -->
+                    <!-- Факт 3: Длительность дня -->
                     <div class="fact-card" data-category="unique">
                         <div class="fact-number">03</div>
-                        <div class="fact-icon">⏳</div>
-                        <h3>Возраст планеты</h3>
-                        <div class="fact-details">
-                            <p>Земля существует миллиарды лет.</p>
-                            <ul>
-                                <li>Возраст: 4.54 млрд лет</li>
-                                <li>Период формирования: 10-20 млн лет</li>
-                                <li>Старейшие горные породы: 3.8 млрд лет</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 4: Биоразнообразие -->
-                    <div class="fact-card" data-category="unique">
-                        <div class="fact-number">04</div>
-                        <div class="fact-icon">🌿</div>
-                        <h3>Биологическое разнообразие</h3>
-                        <div class="fact-details">
-                            <p>Земля - уникальная планета с огромным разнообразием жизни.</p>
-                            <ul>
-                                <li>Количество видов: ~8.7 млн</li>
-                                <li>Открыто: ~1.2 млн видов</li>
-                                <li>Эндемичные виды: более 80%</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 5: Атмосферный состав -->
-                    <div class="fact-card" data-category="atmosphere">
-                        <div class="fact-number">05</div>
-                        <div class="fact-icon">💨</div>
-                        <h3>Состав атмосферы</h3>
-                        <div class="fact-details">
-                            <p>Уникальный состав атмосферы поддерживает жизнь.</p>
-                            <ul>
-                                <li>Азот: 78%</li>
-                                <li>Кислород: 21%</li>
-                                <li>Другие газы: 1%</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 6: Океаны -->
-                    <div class="fact-card" data-category="geology">
-                        <div class="fact-number">06</div>
-                        <div class="fact-icon">🌊</div>
-                        <h3>Водная поверхность</h3>
-                        <div class="fact-details">
-                            <p>Земля - голубая планета с обширными океанами.</p>
-                            <ul>
-                                <li>Площадь океанов: 71%</li>
-                                <li>Средняя глубина: 3.7 км</li>
-                                <li>Объем воды: 1.35 млрд км³</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 7: Тектоника плит -->
-                    <div class="fact-card" data-category="geology">
-                        <div class="fact-number">07</div>
-                        <div class="fact-icon">🌋</div>
-                        <h3>Движение материков</h3>
-                        <div class="fact-details">
-                            <p>Литосферные плиты постоянно движутся.</p>
-                            <ul>
-                                <li>Скорость движения: 2-5 см/год</li>
-                                <li>Количество плит: 15 крупных</li>
-                                <li>Формирование суперконтинентов</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 8: Магнитное поле -->
-                    <div class="fact-card" data-category="unique">
-                        <div class="fact-number">08</div>
-                        <div class="fact-icon">🧲</div>
-                        <h3>Магнитное поле</h3>
-                        <div class="fact-details">
-                            <p>Защитный магнитный щит планеты.</p>
-                            <ul>
-                                <li>Генерируется ядром</li>
-                                <li>Защита от космической радиации</li>
-                                <li>Толщина: 65 000 км</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 9: Температурный режим -->
-                    <div class="fact-card" data-category="atmosphere">
-                        <div class="fact-number">09</div>
-                        <div class="fact-icon">🌡️</div>
-                        <h3>Температурный диапазон</h3>
-                        <div class="fact-details">
-                            <p>Широкий диапазон температур на планете.</p>
-                            <ul>
-                                <li>Минимум: -89.2°C (Антарктида)</li>
-                                <li>Максимум: +57.8°C (Долина Смерти)</li>
-                                <li>Средняя температура: +15°C</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 10: Вулканическая активность -->
-                    <div class="fact-card" data-category="geology">
-                        <div class="fact-number">10</div>
-                        <div class="fact-icon">🌋</div>
-                        <h3>Вулканическая активность</h3>
-                        <div class=" fact-details">
-                            <p>Земля имеет множество активных вулканов.</p>
-                            <ul>
-                                <li>Количество активных вулканов: ~1,500</li>
-                                <li>Самый активный вулкан: Килауэа (Гавайи)</li>
-                                <li>Последнее извержение: 2021 год</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 11: Ледники -->
-                    <div class="fact-card" data-category="climate">
-                        <div class="fact-number">11</div>
-                        <div class="fact-icon">❄️</div>
-                        <h3>Ледники</h3>
-                        <div class="fact-details">
-                            <p>Ледники покрывают значительные участки планеты.</p>
-                            <ul>
-                                <li>Площадь ледников: ~10% поверхности Земли</li>
-                                <li>Основные регионы: Антарктида и Гренландия</li>
-                                <li>Угрозы: глобальное потепление</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 12: Солнечное излучение -->
-                    <div class="fact-card" data-category="atmosphere">
-                        <div class="fact-number">12</div>
                         <div class="fact-icon">☀️</div>
-                        <h3>Солнечное излучение</h3>
+                        <h3>Марсианский день</h3>
                         <div class="fact-details">
-                            <p>Солнце является основным источником энергии для Земли.</p>
+                            <p>Продолжительность дня на Марсе почти такая же, как на Земле.</p>
                             <ul>
-                                <li>Поступление солнечной энергии: 173,000 ТВт</li>
-                                <li>Поглощение атмосферой: ~30%</li>
-                                <li>Влияние на климат: определяет погодные условия</li>
+                                <li>Марсианский день: 24 часа 37 минут</li>
+                                <li>Земной день: 24 часа</li>
+                                <li>Разница: всего 37 минут</li>
                             </ul>
                         </div>
                     </div>
     
-                    <!-- Факт 13: Окружающая среда -->
-                    <div class="fact-card" data-category="environment">
-                        <div class="fact-number">13</div>
-                        <div class="fact-icon">🌍</div>
-                        <h3>Окружающая среда</h3>
+                    <!-- Факт 4: Красный цвет -->
+                    <div class="fact-card" data-category="geology">
+                        <div class="fact-number">04</div>
+                        <div class="fact-icon">🔴</div>
+                        <h3>Почему Марс красный?</h3>
                         <div class="fact-details">
-                            <p>Земля имеет разнообразные экосистемы.</p>
+                            <p>Красный цвет планеты обусловлен большим содержанием оксида железа.</p>
                             <ul>
-                                <li>Типы экосистем: леса, пустыни, океаны</li>
-                                <li>Угрозы: загрязнение, вырубка лесов</li>
-                                <li>Защита: заповедники и охраняемые территории</li>
+                                <li>Основной компонент: Fe₂O₃ (оксид железа)</li>
+                                <li>Похож на ржавчину</li>
+                                <li>Покрывает всю поверхность</li>
                             </ul>
                         </div>
                     </div>
     
-                    <!-- Факт 14: Человеческое население -->
-                    <div class="fact-card" data-category="human">
-                        <div class="fact-number">14</div>
-                        <div class="fact-icon">👥</div>
-                        <h3>Человеческое население</h3>
+                    <!-- Факт 5: Самый большой каньон -->
+                    <div class="fact-card" data-category="geology">
+                        <div class="fact-number">05</div>
+                        <div class="fact-icon">🏞️</div>
+                        <h3>Величайший каньон</h3>
                         <div class="fact-details">
-                            <p>Земля населена более 7.9 миллиардами людей.</p>
+                            <p>Долина Маринер - самый большой каньон в Солнечной системе.</p>
                             <ul>
-                                <li>Самые населенные страны: Китай, Индия</li>
-                                <li>Рост населения: ~1.05% в год</li>
-                                <li>Городское население: ~56%</li>
+                                <li>Длина: 4000 км</li>
+                                <li>Глубина: до 7 км</li>
+                                <li>В 10 раз длиннее Большого каньона</li>
                             </ul>
                         </div>
                     </div>
     
-                    <!-- Факт 15: Культурное разнообразие -->
-                    <div class="fact-card" data-category="culture">
-                        <div class="fact-number">15</div>
-                        <div class="fact-icon">🌐</div>
-                        <h3>Культурное разнообразие</h3>
+                    <!-- Факт 6: Полярные шапки -->
+                    <div class="fact-card" data-category="atmosphere">
+                        <div class="fact-number">06</div>
+                        <div class="fact-icon">❄️</div>
+                        <h3>Полярные шапки</h3>
                         <div class="fact-details">
-                            <p>Земля - дом для множества культур и языков.</p>
+                            <p>На Марсе есть полярные шапки из льда и сухого льда.</p>
                             <ul>
-                                <li>Количество языков: ~7,000</li>
-                                <li>Культуры: разнообразие традиций и обычаев</li>
-                                <li>Глобализация: влияние на культурные обмены</li>
+                                <li>Состав: вода и углекислый газ</li>
+                                <li>Сезонные изменения</li>
+                                <li>Площадь до 3 млн км²</li>
                             </ul>
                         </div>
                     </div>
+                    
+                    <!-- Факт 7: Самые большие пылевые бури -->
+<div class="fact-card" data-category="atmosphere">
+    <div class="fact-number">07</div>
+    <div class="fact-icon">🌪️</div>
+    <h3>Гигантские пылевые бури</h3>
+    <div class="fact-details">
+        <p>Марс известен планетарными пылевыми бурями, которые могут охватывать всю планету.</p>
+        <ul>
+            <li>Площадь бури: до 100% поверхности</li>
+            <li>Длительность: несколько месяцев</li>
+            <li>Скорость ветра: до 150 км/ч</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 8: Спутники Марса -->
+<div class="fact-card" data-category="unique">
+    <div class="fact-number">08</div>
+    <div class="fact-icon">🛰️</div>
+    <h3>Необычные спутники</h3>
+    <div class="fact-details">
+        <p>У Марса два маленьких спутника - Фобос и Деймос.</p>
+        <ul>
+            <li>Фобос: 22 км в диаметре</li>
+            <li>Деймос: 12 км в диаметре</li>
+            <li>Названы в честь богов войны</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 9: Вода на Марсе -->
+<div class="fact-card" data-category="geology">
+    <div class="fact-number">09</div>
+    <div class="fact-icon">💧</div>
+    <h3>Следы воды</h3>
+    <div class="fact-details">
+        <p>На Марсе обнаружены значительные запасы водяного льда.</p>
+        <ul>
+            <li>Лед в полярных шапках</li>
+            <li>Подповерхностные льды</li>
+            <li>Возможные подземные озера</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 10: Самый длинный день -->
+<div class="fact-card" data-category="unique">
+    <div class="fact-number">10</div>
+    <div class="fact-icon">⏰</div>
+    <h3>Длинный марсианский год</h3>
+    <div class="fact-details">
+        <p>Год на Марсе значительно длиннее земного.</p>
+        <ul>
+            <li>Продолжительность: 687 земных дней</li>
+            <li>Сезоны длиннее земных</li>
+            <li>Орбита более вытянутая</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 11: Низкая гравитация -->
+<div class="fact-card" data-category="unique">
+    <div class="fact-number">11</div>
+    <div class="fact-icon">🏋️</div>
+    <h3>Низкая гравитация</h3>
+    <div class="fact-details">
+        <p>Гравитация на Марсе значительно слабее земной.</p>
+        <ul>
+            <li>Всего 38% от земной</li>
+            <li>Человек весит меньше в 2.6 раза</li>
+            <li>Прыжок в 2.6 раза выше</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 12: Атмосфера -->
+<div class="fact-card" data-category="atmosphere">
+    <div class="fact-number">12</div>
+    <div class="fact-icon">🌬️</div>
+    <h3>Разреженная атмосфера</h3>
+    <div class="fact-details">
+        <p>Атмосфера Марса очень тонкая и не пригодна для дыхания.</p>
+        <ul>
+            <li>Давление: 1% от земного</li>
+            <li>Состав: 95% углекислый газ</li>
+            <li>Практически нет кислорода</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 13: Метеориты -->
+<div class="fact-card" data-category="geology">
+    <div class="fact-number">13</div>
+    <div class="fact-icon">☄️</div>
+    <h3>Марсианские метеориты</h3>
+    <div class="fact-details">
+        <p>Некоторые метеориты на Земле родом с Марса.</p>
+        <ul>
+            <li>Обнаружено более 100 метеоритов</li>
+            <li>Возраст: до 4 млрд лет</li>
+            <li>Доставлены ударами астероидов</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 14: Возможность жизни -->
+<div class="fact-card" data-category="exploration">
+    <div class="fact-number">14</div>
+    <div class="fact-icon">🔬</div>
+    <h3>Потенциал для жизни</h3>
+    <div class="fact-details">
+        <p>Ученые допускают возможность существования микроорганизмов.</p>
+        <ul>
+            <li>Следы древних водоемов</li>
+            <li>Органические молекулы</li>
+            <li>Условия для микробной жизни</li>
+        </ul>
+    </div>
+</div>
+<!-- Факт 15: Самый большой каньон -->
+<div class="fact-card" data-category="geology">
+    <div class="fact-number">15</div>
+    <div class="fact-icon">🏞️</div>
+    <h3>Величайший каньон в системе</h3>
+    <div class="fact-details">
+        <p>Долина Маринер - крупнейший каньон в Солнечной системе.</p>
+        <ul>
+            <li>Длина: 4000 км</li>
+            <li>Глубина: до 7 км</li>
+            <li>В 10 раз длиннее Большого каньона</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 16: Магнитное поле -->
+<div class="fact-card" data-category="unique">
+    <div class="fact-number">16</div>
+    <div class="fact-icon">🧲</div>
+    <h3>Слабое магнитное поле</h3>
+    <div class="fact-details">
+        <p>Марс имеет крайне слабое магнитное поле.</p>
+        <ul>
+            <li>В 500 раз слабее земного</li>
+            <li>Локальные магнитные аномалии</li>
+            <li>Не защищает от космической радиации</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 17: Первый космический аппарат -->
+<div class="fact-card" data-category="exploration">
+    <div class="fact-number">17</div>
+    <div class="fact-icon">🚀</div>
+    <h3>Первый космический аппарат</h3>
+    <div class="fact-details">
+        <p>Первый успешный пролет около Марса совершил Mariner 4.</p>
+        <ul>
+            <li>Дата: 14 июля 1965 года</li>
+            <li>Первые близкие снимки планеты</li>
+            <li>22 фотографии высокого разрешения</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 18: Сезоны -->
+<div class="fact-card" data-category="atmosphere">
+    <div class="fact-number">18</div>
+    <div class="fact-icon">🌈</div>
+    <h3>Марсианские сезоны</h3>
+    <div class="fact-details">
+        <p>На Марсе существуют четкие сезонные изменения.</p>
+        <ul>
+            <li>Продолжительность года: 687 дней</li>
+            <li>Наклон оси: 25.2 градуса</li>
+            <li>Смена сезонов похожа на земные</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 19: Кратеры -->
+<div class="fact-card" data-category="geology">
+    <div class="fact-number">19</div>
+    <div class="fact-icon">🌋</div>
+    <h3>Множество кратеров</h3>
+    <div class="fact-details">
+        <p>Поверхность Марса покрыта множеством древних кратеров.</p>
+        <ul>
+            <li>Более 600 000 кратеров</li>
+            <li>Диаметр до 1000 км</li>
+            <li>Сохранились с древних времен</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Факт 20: Перспективы колонизации -->
+<div class="fact-card" data-category="exploration">
+    <div class="fact-number">20</div>
+    <div class="fact-icon">🏠</div>
+    <h3>Будущая колонизация</h3>
+    <div class="fact-details">
+        <p>Марс рассматривается как потенциальное место для человеческой колонии.</p>
+        <ul>
+            <li>Наличие воды и льда</li>
+            <li>Схожесть с земными условиями</li>
+            <li>Планируются пилотируемые миссии</li>
+        </ul>
+    </div>
+</div>                  
+                </div>
     
-                    <!-- Факт 16: Экономика -->
-                    <div class="fact-card" data-category="economy">
-                        <div class="fact-number">16</div>
-                        <div class="fact-icon">💰</div>
-                        <h3>Глобальная экономика</h3>
-                        <div class="fact-details">
-                            <p>Экономика Земли разнообраз 
-                    <p>Экономика Земли разнообразна и сложна.</p>
-                            <ul>
-                                <li>Мировой ВВП: ~94 трлн долларов США</li>
-                                <li>Основные сектора: услуги, промышленность, сельское хозяйство</li>
-                                <li>Развивающиеся страны: быстрый рост экономики</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 17: Технологические достижения -->
-                    <div class="fact-card" data-category="technology">
-                        <div class="fact-number">17</div>
-                        <div class="fact-icon">💻</div>
-                        <h3>Технологические достижения</h3>
-                        <div class="fact-details">
-                            <p>Технологии изменили жизнь на Земле.</p>
-                            <ul>
-                                <li>Интернет: более 4.5 млрд пользователей</li>
-                                <li>Искусственный интеллект: новые возможности и вызовы</li>
-                                <li>Космические исследования: миссии на Марс и за его пределы</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 18: Изменение климата -->
-                    <div class="fact-card" data-category="climate">
-                        <div class="fact-number">18</div>
-                        <div class="fact-icon">🌡️</div>
-                        <h3>Изменение климата</h3>
-                        <div class="fact-details">
-                            <p>Климат Земли меняется из-за человеческой деятельности.</p>
-                            <ul>
-                                <li>Повышение температуры: ~1.2°C с конца 19 века</li>
-                                <li>Увеличение уровня моря: ~3.3 мм в год</li>
-                                <li>Экстремальные погодные условия: увеличение частоты и интенсивности</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 19: Защита окружающей среды -->
-                    <div class="fact-card" data-category="environment">
-                        <div class="fact-number">19</div>
-                        <div class="fact-icon">♻️</div>
-                        <h3>Защита окружающей среды</h3>
-                        <div class="fact-details">
-                            <p>Мировое сообщество работает над защитой планеты.</p>
-                            <ul>
-                                <li>Соглашение Парижа: борьба с изменением климата</li>
-                                <li>Охраняемые территории: ~15% суши и 7% океанов</li>
-                                <li>Инициативы по устойчивому развитию: переход на возобновляемые источники энергии</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <!-- Факт 20: Будущее Земли -->
-                    <div class="fact-card" data-category="future">
-                        <div class="fact-number">20</div>
-                        <div class="fact-icon">🔮</div>
-                        <h3>Будущее Земли</h3>
-                        <div class="fact-details">
-                            <p>Будущее планеты зависит от действий человечества.</p>
-                            <ul>
-                                <li>Устойчивое развитие: необходимость для будущих поколений</li>
-                                <li>Технологические инновации: решение глобальных проблем</li>
-                                <li>Сохранение биоразнообразия: ключ к здоровой экосистеме</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="facts-pagination">
+                    <button class="prev-btn">←</button>
+                    <span class="page-info">Страница 1 из 3</span>
+                    <button class="next-btn">→</button>
                 </div>
             </div>
         </div>
     </section>
 
+ 
+
     <footer id="footer">
         <div class="container">
-            <p>© 2024 Earth Exploration Project. Все права защищены.</p>
-            <p>Контакты: info@earth-exploration.com</p>
+            <p>© 2024 Mars Exploration Project. Все права защищены.</p>
+            <p>Контакты: info@mars-exploration.com</p>
         </div>
     </footer>
-</body>
 
     <script>
-        // JavaScript код для анимаций и интерактивности
+        // Функция для проверки видимости секций при прокрутке
         function checkVisibility() {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
@@ -2705,6 +2815,110 @@ p {
                 }
             });
         }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const historySections = document.querySelectorAll('.history-section');
+            
+            console.log('Найдено секций:', historySections.length);
+            
+            historySections.forEach((section, index) => {
+                console.log(`Секция ${index + 1}:`, section);
+                section.classList.add('visible');
+            });
+    
+            // Пагинация и фильтрация фактов
+            const factsGrid = document.querySelector('.facts-grid');
+            const factCards = document.querySelectorAll('.fact-card');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const searchInput = document.getElementById('fact-search');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const pageInfo = document.querySelector('.page-info');
+    
+            const factsPerPage = 6;
+            let currentPage = 1;
+            let filteredCards = Array.from(factCards);
+    
+            // Функция отображения страницы
+            function showPage(page) {
+                const startIndex = (page - 1) * factsPerPage;
+                const endIndex = startIndex + factsPerPage;
+    
+                filteredCards.forEach((card, index) => {
+                    card.style.display = 'none';
+                    if (index >= startIndex && index < endIndex) {
+                        card.style.display = 'block';
+                    }
+                });
+    
+                updatePaginationInfo();
+            }
+    
+            // Обновление информации о пагинации
+            function updatePaginationInfo() {
+                const totalPages = Math.ceil(filteredCards.length / factsPerPage);
+                pageInfo.textContent = `Страница ${currentPage} из ${totalPages}`;
+                
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            }
+    
+            // Обработчики кнопок пагинации
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            });
+    
+            nextBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredCards.length / factsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            });
+    
+            // Фильтрация по категориям
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Убираем активный класс со всех кнопок
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+    
+                    const category = button.dataset.category;
+    
+                    // Фильтруем карточки
+                    if (category === 'all') {
+                        filteredCards = Array.from(factCards);
+                    } else {
+                        filteredCards = Array.from(factCards).filter(card => 
+                            card.dataset.category === category
+                        );
+                    }
+    
+                    currentPage = 1;
+                    showPage(currentPage);
+                });
+            });
+    
+            // Поиск фактов
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+    
+                filteredCards = Array.from(factCards).filter(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    return title.includes(searchTerm) || description.includes(searchTerm);
+                });
+    
+                currentPage = 1;
+                showPage(currentPage);
+            });
+    
+            // Инициализация первой страницы
+            showPage(currentPage);
+        });
     
         // Обработчики видимости секций
         window.addEventListener('scroll', checkVisibility);

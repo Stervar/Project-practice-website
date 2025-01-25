@@ -1432,7 +1432,7 @@
     background-color: rgba(26, 26, 26, 0.8);
     border-radius: 15px;
     padding: 25px;
-    border: 2px solid rgba(255, 69, 0, 0.3);
+    border: 2px solid rgba(255, 251, 0, 0.3);
     transition: all 0.5s ease;
     transform: translateZ(-50px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -1449,7 +1449,7 @@
     height: 200%;
     background: radial-gradient(
         circle at center, 
-        rgba(255, 69, 0, 0.1), 
+        rgba(255, 174, 0, 0.1), 
         transparent 70%
     );
     transform: rotate(45deg);
@@ -1468,7 +1468,7 @@
 
 .fact-number {
     font-size: 2.5em;
-    color: #ff4500;
+    color: #ffe600;
     font-weight: 900;
     position: absolute;
     top: 10px;
@@ -1485,7 +1485,7 @@
 .fact-icon {
     font-size: 3.5em;
     margin: 15px 0;
-    color: #ff4500;
+    color: #ffae00;
     transition: all 0.3s ease;
 }
 
@@ -1505,8 +1505,8 @@
 .prev-btn, .next-btn {
     padding: 12px 25px;
     background-color: transparent;
-    border: 2px solid #ff4500;
-    color: #ff4500;
+    border: 2px solid #ffae00;
+    color: #ffc400;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1516,7 +1516,7 @@
 
 .prev-btn:hover, .next-btn:hover {
     color: #000;
-    background-color: #ff4500;
+    background-color: #ffd000;
 }
 
 .prev-btn:disabled, .next-btn:disabled {
@@ -1539,13 +1539,13 @@
 /* Основные стили для текста фактов */
 .fact-card h3 {
     font-family: 'Orbitron', sans-serif;
-    color: #ff4500;
+    color: #ffbb00;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     position: relative;
     text-shadow: 
-        0 0 10px rgba(255, 69, 0, 0.3),
-        0 0 5px rgba(255, 69, 0, 0.2);
+        0 0 10px rgba(255, 238, 0, 0.3),
+        0 0 5px rgba(255, 230, 0, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -1558,7 +1558,7 @@
     height: 2px;
     background: linear-gradient(
         to right, 
-        #ff4500, 
+        #ffc400, 
         transparent
     );
     transition: width 0.3s ease;
@@ -1585,7 +1585,7 @@
     content: '•';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #ffbb00;
     font-weight: bold;
 }
 
@@ -1606,7 +1606,7 @@
     content: '➤';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #ffc400;
     opacity: 0.7;
     transition: all 0.3s ease;
 }
@@ -1617,13 +1617,13 @@
 
 .fact-card:hover .fact-details ul li::before {
     opacity: 1;
-    color: #ff6b35;
+    color: #ffc935;
 }
 
 /* Эффект для цифр фактов */
 .fact-number {
     font-family: 'Orbitron', sans-serif;
-    color: #ff4500;
+    color: #ffc400;
     opacity: 0.3;
     transition: all 0.3s ease;
 }
@@ -1648,13 +1648,13 @@
 @keyframes fact-glow {
     0%, 100% {
         text-shadow: 
-            0 0 10px rgba(255, 69, 0, 0.3),
-            0 0 5px rgba(255, 69, 0, 0.2);
+            0 0 10px rgba(255, 230, 0, 0.3),
+            0 0 5px rgba(255, 217, 0, 0.2);
     }
     50% {
         text-shadow: 
-            0 0 15px rgba(255, 69, 0, 0.5),
-            0 0 8px rgba(255, 69, 0, 0.4);
+            0 0 15px rgba(255, 208, 0, 0.5),
+            0 0 8px rgba(255, 187, 0, 0.4);
     }
 }
 
@@ -1719,10 +1719,10 @@
     border-radius: 30px;
     padding: 40px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 69, 0, 0.2);
+    border: 1px solid rgba(255, 196, 0, 0.2);
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.3),
-        0 5px 15px rgba(255, 69, 0, 0.1);
+        0 5px 15px rgba(255, 217, 0, 0.1);
     transition: all 0.5s ease;
 }
 
@@ -1730,11 +1730,11 @@
     transform: translateY(-10px);
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.4),
-        0 7px 20px rgba(255, 69, 0, 0.2);
+        0 7px 20px rgba(255, 208, 0, 0.2);
 }
 
 #history .history-section .description-content h4 {
-    color: #ff4500;
+    color: #ffae00;
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -1752,7 +1752,7 @@
     height: 3px;
     background: linear-gradient(
         to right, 
-        #ff4500, 
+        #ffc400, 
         transparent
     );
 }
@@ -1771,7 +1771,7 @@
     content: '•';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #ffc400;
     font-weight: bold;
 }
 
@@ -1787,7 +1787,7 @@
     position: relative;
     padding-left: 30px;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 196, 0, 0.1);
 }
 
 #history .history-section .description-content ul li:last-child {
@@ -1798,19 +1798,19 @@
     content: '✦';
     position: absolute;
     left: 0;
-    color: #ff4500;
+    color: #ffbb00;
     opacity: 0.7;
     transition: all 0.3s ease;
 }
 
 #history .history-section .description-content ul li:hover {
     transform: translateX(10px);
-    color: #ff4500;
+    color: #ffe600;
 }
 
 #history .history-section .description-content ul li:hover::before {
     opacity: 1;
-    color: #ff4500;
+    color: #ffbb00;
 }
 
 #history .history-section .historical-context {
@@ -1822,7 +1822,7 @@
 }
 
 #history .history-section .historical-context h4 {
-    color: #ff4500;
+    color: #ffbb00;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
